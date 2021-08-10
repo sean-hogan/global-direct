@@ -1,5 +1,4 @@
 <template>
-<Navbar />
 
   <div class="open-learning container">
     <div class="banner text-center">
@@ -28,7 +27,6 @@
 
 <script>
 // @ is an alias to /src
-import Navbar from '@/components/Navbar.vue'
 import OpenLearningFeature from '@/components/OpenLearningFeature.vue'
 import OpenLearningSteps from '@/components/OpenLearningSteps.vue'
 import OpenLearningFAQ from '@/components/OpenLearningFAQ.vue'
@@ -39,7 +37,6 @@ import Footer from '@/components/Footer.vue'
 export default {
   name: 'OpenLearning',
   components: {
-    Navbar,
     OpenLearningFeature,
     OpenLearningSteps,
     OpenLearningFAQ,

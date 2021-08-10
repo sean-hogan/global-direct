@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import { fb } from '../firebase'
+
 
 const routes = [{
         path: '/',
@@ -19,14 +21,41 @@ const routes = [{
         path: '/open-learning',
         name: 'OpenLearning',
         component: () =>
-            import ( /* webpackChunkName: "about" */ '../views/OpenLearning.vue')
+            import ('../views/OpenLearning.vue')
     },
     {
         path: '/get-started',
         name: 'GetStarted',
         component: () =>
-            import ( /* webpackChunkName: "about" */ '../views/GetStarted.vue')
+            import ('../views/GetStarted.vue')
+    },
+    {
+        path: '/courses/:id',
+        name: 'CourseTemplate',
+        component: () =>
+            import ('../views/CourseTemplate.vue')
+    },
+    {
+        path: '/admin',
+        name: 'Admin',
+        component: () =>
+            import ('../views/Admin.vue'),
+        meta: { requiresAuth: true },
+        children: [{
+                path: 'admin-dashboard',
+                name: 'AdminDashboard',
+                component: () =>
+                    import ('../components/AdminDashboard.vue')
+            },
+            {
+                path: 'catalog-edit',
+                name: 'CatalogEdit',
+                component: () =>
+                    import ('../components/CatalogEdit.vue')
+            },
+        ]
     }
+
 
 
 
@@ -34,7 +63,30 @@ const routes = [{
 
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
-    routes
+    routes,
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition
+        } else {
+            return { left: 0, top: 0 }
+        }
+    }
+
 })
+
+router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+        if (fb.auth().currentUser) {
+            next();
+        } else {
+            alert('You must be logged in to see this page');
+            next({
+                path: '/',
+            });
+        }
+    } else {
+        next();
+    }
+});
 
 export default router

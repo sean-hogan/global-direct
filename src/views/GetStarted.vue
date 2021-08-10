@@ -1,5 +1,4 @@
 <template>
-<Navbar />
 
   <div class="get-started container">
     <div class="row justify-content-center">
@@ -87,14 +86,12 @@
 
 <script>
 // @ is an alias to /src
-import Navbar from '@/components/Navbar.vue'
 import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'GetStarted',
   components: {
-    Navbar,
-    Footer
+    Footer,
       }
 }
 </script>

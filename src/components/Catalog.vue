@@ -13,79 +13,22 @@
 
     <div class="row card-wrapper row-cols-1 row-cols-3 g-4">
  <!--card-->
-  <div class="col">
-    <div class="card">
+  <div v-for="course in courses" class="col" :key="course.courseNumber">
+    <div class="card h-100">
       <img src="../assets/t1.svg" class="card-img-top" alt="">
-      <div class="card-body">
-        <h5 class="card-title">Class title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <button class="btn btn-outline-secondary">Enroll</button>
-      </div>
-    </div>
-  </div>
+      <div class="card-body d-flex flex-column">
+        <h5 class="card-title">{{course.courseTitle}}</h5>
+        <h6>${{course.price}}</h6>
+        <p class="card-text">{{course.cardText}}</p>
+      
+        <router-link class="btn btn-outline-secondary mt-auto me-auto" :to="{ name: 'CourseTemplate', params: { id: course.courseNumber }}">Enroll</router-link>
+    
+        
 
-  <!--card-->
-  <div class="col">
-    <div class="card">
-      <img src="../assets/t1.svg" class="card-img-top" alt="">
-      <div class="card-body">
-        <h5 class="card-title">Class title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <button class="btn btn-outline-secondary">Enroll</button>
       </div>
     </div>
-  </div>
+  </div><!--end card-->
 
-  <!--card-->
-  <div class="col">
-    <div class="card">
-      <img src="../assets/t1.svg" class="card-img-top" alt="">
-      <div class="card-body">
-        <h5 class="card-title">Class title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <button class="btn btn-outline-secondary">Enroll</button>
-      </div>
-    </div>
-  </div>
-
-  <!--card-->
-  <div class="col">
-    <div class="card">
-      <img src="../assets/t1.svg" class="card-img-top" alt="">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <button class="btn btn-outline-secondary">Enroll</button>
-  
-      </div>
-    </div>
-  </div>
-
-  <!--card-->
-  <div class="col">
-    <div class="card">
-      <img src="../assets/t1.svg" class="card-img-top" alt="">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <button class="btn btn-outline-secondary">Enroll</button>
-  
-      </div>
-    </div>
-  </div>
-
-  <!--card-->
-  <div class="col">
-    <div class="card">
-      <img src="../assets/t1.svg" class="card-img-top" alt="">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <button class="btn btn-outline-secondary">Enroll</button>
-  
-      </div>
-    </div>
-  </div>
         
     </div><!--end row-->
 
@@ -95,15 +38,38 @@
 </template>
 
 <script>
+import {fb, db} from '../firebase';
+
 export default {
     name: 'Catalog',
   props: {
 
   },
+  data(){
+      return{
+          courses: [],
+
+      }
+  },
+   created(){
+      db.collection("courses").get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        this.courses.push(doc.data());
+    });
+});
+  }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
+.card {
+  box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+      transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+}
+.card:hover{
+     transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
 </style>
