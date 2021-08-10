@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
     <div class="container p-1">
         <a class="navbar-brand" href="/">
-        <img src="@/assets/direct-nav-logo.png" alt="" width="60" class="me-2">
+        <img src="../assets/direct-nav-logo.png" alt="" width="60" class="me-2">
         <span class="logo align-middle">GLOBAL DIRECT</span>
         </a>
         

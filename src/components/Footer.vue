@@ -4,7 +4,7 @@
      <footer>
          <div class="row mx-5 p-5">
             <div class="col-sm-4">
-                <img src="@/assets/logo_csuglobal.png" alt="">
+                <img src="../assets/logo_csuglobal.png" alt="">
                 <p class="mt-3"><strong>Colorado State University Global</strong>
                 <br />585 Salida Way
                 <br />Aurora, CO 80011</p>
