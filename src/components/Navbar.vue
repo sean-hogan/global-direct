@@ -11,74 +11,28 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            
             <li class="nav-item px-3">
-            <a class="nav-link" aria-current="page" href="/">Home</a>
-            </li>
-
-            <li class="nav-item px-3">
-            <a class="nav-link" href="/#catalog">Catalog</a>
-            </li>
-
-            <li class="nav-item px-3">
-            <a class="nav-link" href="/open-learning">How To Enroll</a>
+            <router-link class="nav-link" active-class="active" to="/#catalog">Catalog</router-link>
             </li>
             <li class="nav-item px-3">
-            <a class="nav-link" href="/about">About</a>
+            <router-link class="nav-link" active-class="active" to="/about">About</router-link>
             </li>
             
             <li class="nav-item px-3">
-            <a class="nav-link  btn btn-outline-success" href="/get-started">GET STARTED</a>
+            <router-link class="nav-link  btn btn-outline-success" to="/get-started">GET STARTED</router-link>
             </li>
-            <li class="nav-item px-3"><a class="btn btn-success" @click="showModal">Login</a></li>
-            <li class="nav-item px-3"><a class="btn btn-outline-primary" @click="logout">Logout</a></li>
 
         </ul>
         </div>
     </div>
     </nav>  
-    <LoginModal @closeModal="closeModal()" />
 </template>
 
 <script>
-import LoginModal from './LoginModal.vue';
-import {fb} from '../firebase';
-import { Modal } from 'bootstrap'
-
 export default {
   name: 'Navbar',
   props: {
-  },
-  data(){
-    return {
-      myModal: null,
-    }
-  },
-  components: {
-      LoginModal
-  },
-  methods:{
-        showModal(){
-        this.myModal = new Modal(document.getElementById('loginmodal'), {})
-        this.myModal.show()
-    },
-        closeModal(){
-        this.myModal.hide()
-    },
-    
-    
-      logout(){
-          fb.auth().signOut().then(() => {
-            // Sign-out successful.
-            alert('You have been logged out');
-            //this.$router.push('/');
-
-            }).catch((error) => {
-            // An error happened.
-            alert('an error happened');
-            });
-
-      }
-
   },
 }
 

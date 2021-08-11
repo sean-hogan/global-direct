@@ -21,7 +21,7 @@
         <h6>${{course.price}}</h6>
         <p class="card-text">{{course.cardText}}</p>
       
-        <router-link class="btn btn-outline-secondary mt-auto me-auto" :to="{ name: 'CourseTemplate', params: { id: course.courseNumber }}">Enroll</router-link>
+        <router-link class="btn btn-outline-secondary mt-auto me-auto" :to="{ name: 'CourseTemplate', params: { id: course.courseNumber }}">More Info</router-link>
     
         
 

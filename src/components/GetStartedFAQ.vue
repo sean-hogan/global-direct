@@ -1,20 +1,21 @@
 <template>
-<div class="open-learning-faq section">
-    <div class="container px-4 py-5">
+<div class="container">
+<div class="get-started-faq section px-4 py-5">
          <div class="faq my-5">
 
         <h2> Here is the FAQ accordion</h2>
       </div>
 
 
-    </div><!--end container-->
 
     </div><!--end section-->
+        </div><!--end container-->
+
 </template>
 
 <script>
 export default {
-    name: 'OpenLearningFAQ',
+    name: 'GetStartedFAQ',
   props: {
 
   },

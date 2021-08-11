@@ -1,6 +1,7 @@
 <template>
-<div class="open-learning-feature section">
-    <div class="container px-4 py-5">
+<div class="container">
+<div class="get-started-feature section px-4 py-5">
+    
         
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-2 row-eq-height">
         <div class="col d-flex align-items-start">
@@ -52,13 +53,14 @@
         </div>
 
     </div><!--end row-->
-    </div><!--end container-->
     </div><!--end section-->
+        </div><!--end container-->
+
 </template>
 
 <script>
 export default {
-    name: 'OpenLearningFeature',
+    name: 'GetStartedFeature',
   props: {
 
   },

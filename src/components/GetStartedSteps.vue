@@ -1,6 +1,6 @@
 <template>
-<div class="open-learning-steps section">
-  <div class="container col-xxl-8 px-4 py-5">
+<div class="container">
+<div class="get-started-steps section px-4 py-5">
       
       <!--Step-->
     <div class="row flex-lg-row-reverse align-items-start g-5 py-5 px-5 mx-5 mb-5">
@@ -108,13 +108,14 @@
 
 
 
-  </div><!--End Container-->
 </div><!--end section-->
+    </div><!--end container-->
+
 </template>
 
 <script>
 export default {
-    name: 'OpenLearningSteps',
+    name: 'GetStartedSteps',
   props: {
 
   },

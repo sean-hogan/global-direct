@@ -18,12 +18,6 @@ const routes = [{
             import ( /* webpackChunkName: "about" */ '../views/About.vue')
     },
     {
-        path: '/open-learning',
-        name: 'OpenLearning',
-        component: () =>
-            import ('../views/OpenLearning.vue')
-    },
-    {
         path: '/get-started',
         name: 'GetStarted',
         component: () =>
@@ -67,6 +61,12 @@ const router = createRouter({
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {
             return savedPosition
+        } else if (to.hash) {
+            return {
+                el: to.hash,
+                behavior: 'smooth',
+                top: 50,
+            }
         } else {
             return { left: 0, top: 0 }
         }

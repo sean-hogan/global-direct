@@ -34,7 +34,12 @@
                 <li><a class="link-secondary" href="https://csuglobal.edu/about/partnerships">Partnerships</a></li>
                 <li><a class="link-secondary" href="https://csuglobal.edu/about/careers">Careers</a></li>
                 <li><a class="link-secondary" href="https://csuglobal.edu/student-policies">Student Policies</a></li>
+                <li><a class="link-secondary" @click="showModal">Login</a></li>
+                <li><a class="link-secondary" @click="logout">Logout</a></li>
             </ul>
+            
+            
+            
             
             </div><!--end col-->
 
@@ -42,14 +47,55 @@
      </footer>
     </div><!--end container-->
     </div><!--end section-->
+    
+    <LoginModal @closeModal="closeModal()" />
+
 </template>
 
 <script>
+import {fb} from '../firebase';
+import LoginModal from './LoginModal.vue';
+import { Modal } from 'bootstrap'
+
 export default {
   name: 'Footer',
   props: {
 
-  }
+  },
+  
+  data(){
+    return {
+      myModal: null,
+    }
+  },
+  components: {
+      LoginModal
+  },
+  methods:{
+        showModal(){
+        this.myModal = new Modal(document.getElementById('loginmodal'), {})
+        this.myModal.show()
+    },
+        closeModal(){
+        this.myModal.hide()
+    },
+    
+    
+      logout(){
+          fb.auth().signOut().then(() => {
+            // Sign-out successful.
+            alert('You have been logged out');
+            //this.$router.push('/');
+
+            }).catch((error) => {
+            // An error happened.
+            alert('an error happened');
+            });
+
+      }
+
+  },
+
   
 }
 </script>
