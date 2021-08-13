@@ -4,7 +4,7 @@
             <source src="../assets/30-SEC-LOOP.mp4" type="video/mp4">
         </video>
 </div>
-<div class="header text-white text-center my-5" style="min-height:551px;">
+<div class="header text-white text-center my-5">
     <h1 class="display-1">Here is a video banner</h1>
 </div>
 
@@ -30,5 +30,9 @@ export default {
     z-index: -100;
     background-color: #1c2333;
     position: absolute;
+}
+
+.header {
+    height: 100vh
 }
 </style>
