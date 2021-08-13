@@ -1,5 +1,5 @@
 <template>
-<div class="testimonials section bg-primary text-white">
+<div class="testimonials section bg-grey">
     <div class="container px-4 py-5">
         <div class="row text-center mb-3">
         <h2 class="display-3">What Our Students Say</h2>

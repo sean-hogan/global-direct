@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-<Banner />
+<VideoBanner />
 <SchoolFeature />
 <Features />
 <Staff />
@@ -13,7 +13,7 @@
 
 <script>
 // @ is an alias to /src
-import Banner from '@/components/Banner.vue'
+import VideoBanner from '@/components/VideoBanner.vue'
 import SchoolFeature from '@/components/SchoolFeature.vue'
 import Features from '@/components/Features.vue'
 import Staff from '@/components/Staff.vue'
@@ -23,7 +23,7 @@ import Footer from '@/components/Footer.vue'
 export default {
   name: 'About',
   components: {
-    Banner,
+    VideoBanner,
     SchoolFeature,
     Features,
     Staff,

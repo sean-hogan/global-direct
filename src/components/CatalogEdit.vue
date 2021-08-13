@@ -3,18 +3,45 @@
 
 <h3>Add A Course:</h3>
 <form @submit.prevent="addCourse">
+ 
   <div class="mb-3">
-    <input type="text" class="form-control" v-model="courseInfo.courseTitle" id="courseTitle" placeholder="Course Title">
+    <input type="text" class="form-control" v-model="courseInfo.courseTitle" id="courseTitle" placeholder="Course Title" />
   </div>
   <div class="mb-3">
-    <input type="text" class="form-control" v-model="courseInfo.courseNumber" id="courseNumber" placeholder="Course Number">
+    <input type="text" class="form-control" v-model="courseInfo.courseNumber" id="courseNumber" placeholder="Course Number" />
   </div>
   <div class="mb-3">
-    <input type="text" class="form-control" v-model="courseInfo.price" id="price" placeholder="Price">
+    <input type="text" class="form-control" v-model="courseInfo.coursePrice" id="price" placeholder="Price" />
   </div>
   <div class="mb-3">
-    <input type="text" class="form-control" v-model="courseInfo.cardText" id="cardText" placeholder="Card Text">
+    <input type="text" class="form-control" v-model="courseInfo.cardText" id="cardText" placeholder="Card Text" />
   </div>
+  <div class="mb-3">
+    <input type="text" class="form-control" v-model="courseInfo.creditHours" id="creditHours" placeholder="Credit Hours" />
+  </div>
+  <div class="mb-3">
+    <input type="text" class="form-control" v-model="courseInfo.courseLevel" id="courseLevel" placeholder="Level" />
+  </div>
+  <div class="mb-3">
+    <input type="text" class="form-control" v-model="courseInfo.courseSubjects" id="courseSubjects" placeholder="Subject Tags" />
+  </div>
+  <div class="mb-3">
+    <textarea type="text" class="form-control" v-model="courseInfo.courseDescription" id="courseDescription" placeholder="Course Page Description" />
+  </div>
+  <div class="mb-3">
+    <textarea type="text" class="form-control" v-model="courseInfo.courseObjectives" id="courseObjectives" placeholder="Course Page Objectives" />
+  </div>
+
+  <div class="form-check form-switch mb-3">
+  <input class="form-check-input" v-model="courseInfo.hasLectures" type="checkbox" id="hasLectures" checked>
+  <label class="form-check-label" for="hasLectures">Has Lectures</label>
+</div>
+
+<div class="form-check form-switch mb-3">
+  <input class="form-check-input" v-model="courseInfo.hasLabs" type="checkbox" id="hasLabs">
+  <label class="form-check-label" for="hasLabs">Has Labs</label>
+</div>
+
   <button type="submit" class="btn btn-primary">Save</button>
 </form>
 
@@ -40,9 +67,9 @@
       <img src="../assets/t1.svg" class="card-img-top" alt="">
       <div class="card-body">
         <h5 class="card-title">{{course.data().courseTitle}}</h5>
-        <h6>${{course.data().price}}</h6>
+        <h6>${{course.data().coursePrice}}</h6>
         <p class="card-text">{{course.data().cardText}}</p>
-        <button class="btn btn-outline-secondary">Enroll</button>
+        <router-link class="btn btn-outline-secondary mt-auto me-auto" :to="{ name: 'CourseTemplate', params: { id: course.data().courseNumber }}">More Info</router-link>
       </div>
     </div><!--end card-->
   <button @click="showModal(course)" class="btn btn-primary mt-3 me-3">Edit</button>
@@ -65,17 +92,42 @@
         <!------->
         <form>
   <div class="mb-3">
-    <input type="text" class="form-control" v-model="courseInfo.courseTitle" id="courseTitle" placeholder="Course Title">
+    <input type="text" class="form-control" v-model="courseInfo.courseTitle" id="courseTitle" placeholder="Course Title" />
   </div>
   <div class="mb-3">
-    <input type="text" class="form-control" v-model="courseInfo.courseNumber" id="courseNumber" placeholder="Course Number">
+    <input type="text" class="form-control" v-model="courseInfo.courseNumber" id="courseNumber" placeholder="Course Number" />
   </div>
   <div class="mb-3">
-    <input type="text" class="form-control" v-model="courseInfo.price" id="price" placeholder="Price">
+    <input type="text" class="form-control" v-model="courseInfo.coursePrice" id="price" placeholder="Price" />
   </div>
   <div class="mb-3">
-    <input type="text" class="form-control" v-model="courseInfo.cardText" id="cardText" placeholder="Card Text">
+    <input type="text" class="form-control" v-model="courseInfo.cardText" id="cardText" placeholder="Card Text" />
   </div>
+  <div class="mb-3">
+    <input type="text" class="form-control" v-model="courseInfo.creditHours" id="creditHours" placeholder="Credit Hours" />
+  </div>
+  <div class="mb-3">
+    <input type="text" class="form-control" v-model="courseInfo.courseLevel" id="courseLevel" placeholder="Level" />
+  </div>
+  <div class="mb-3">
+    <input type="text" class="form-control" v-model="courseInfo.courseSubjects" id="courseSubjects" placeholder="Subject Tags" />
+  </div>
+  <div class="mb-3">
+    <textarea type="text" class="form-control" v-model="courseInfo.courseDescription" id="courseDescription" placeholder="Course Page Description" />
+  </div>
+  <div class="mb-3">
+    <textarea type="text" class="form-control" v-model="courseInfo.courseObjectives" id="courseObjectives" placeholder="Course Page Objectives" />
+  </div>
+
+  <div class="form-check form-switch mb-3">
+  <input class="form-check-input" v-model="courseInfo.hasLectures" type="checkbox" id="hasLectures" checked>
+  <label class="form-check-label" for="hasLectures">Has Lectures</label>
+</div>
+
+<div class="form-check form-switch mb-3">
+  <input class="form-check-input" v-model="courseInfo.hasLabs" type="checkbox" id="hasLabs">
+  <label class="form-check-label" for="hasLabs">Has Labs</label>
+</div>
       </form>
 
 <!--------------->
@@ -111,8 +163,16 @@ export default {
           courseInfo: {
             courseTitle:null,
             courseNumber:null,
-            price:null,
+            coursePrice:null,
             cardText:null,
+            creditHours:null,
+            courseLevel:null,
+            courseSubjects:null,
+            courseDescription:null,
+            courseObjectives:null,
+            hasLectures:null,
+            hasLabs:null,
+
           },
           activeItem:null,
 
@@ -189,4 +249,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
+.modal-dialog {
+  max-width:80%
+}
 </style>

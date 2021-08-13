@@ -18,7 +18,7 @@
       <img src="../assets/t1.svg" class="card-img-top" alt="">
       <div class="card-body d-flex flex-column">
         <h5 class="card-title">{{course.courseTitle}}</h5>
-        <h6>${{course.price}}</h6>
+        <h6>${{course.coursePrice}}</h6>
         <p class="card-text">{{course.cardText}}</p>
       
         <router-link class="btn btn-outline-secondary mt-auto me-auto" :to="{ name: 'CourseTemplate', params: { id: course.courseNumber }}">More Info</router-link>

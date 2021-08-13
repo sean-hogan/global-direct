@@ -81,11 +81,11 @@ export default {
     },
     
     
-      logout(){
+      async logout(){
           fb.auth().signOut().then(() => {
             // Sign-out successful.
             alert('You have been logged out');
-            //this.$router.push('/');
+            this.$router.push('/');
 
             }).catch((error) => {
             // An error happened.

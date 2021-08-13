@@ -1,32 +1,33 @@
 <template>
 
-  <div v-for="course in courses" :key="course.courseNumber" class="course container">
+  <div v-for="course in courses" :key="course.courseNumber" class="course container px-5">
 
-    <div class="row">
-        <div class="col-sm-2 text-end">
-            <i class="bi bi-keyboard h1" />
-        </div><!--end col-->
+    <div class="row g-5">
 
-        <div class="col-sm-6">
+        <div class="col-sm-8">
             <article>
                 <header>
                     <h3 class="display-4">{{course.courseTitle}}</h3>
                     <ul class="list-unstyled list-inline">
                         <li class="list-inline-item">Course ID: <strong>{{course.courseNumber}}</strong></li>
-                        <li class="list-inline-item">Subjects: <strong>Cybersecurity, Typing</strong></li>
+                        <li class="list-inline-item">Subjects: <strong>{{course.courseSubjects}}</strong></li>
 
                     </ul>
 
                 </header>
 
-                <p>Keep practicing each lesson until you get all five stars. It really doesn't take much to learn, a few minutes a day for one to two weeks and you will be a pro! Here you'll find an expanded set of free online typing lessons and typing exercises for beginning typists, and frustrated hunt-and-peckers who want to move from four-finger typing to full-blown touch typing.</p>
-                <p>Here is a second shorter paragraph pehaps about SWBAT or learning objectives or something</p>
+                <p class="lead">{{course.cardText}}</p>
+                <p>{{course.courseDescription}}</p>
             </article>
 
-            <h5 class="my-3">What You'll Get</h5>
+            <h2 class="my-3">Key Takeaways</h2>
+            <p>{{course.courseObjectives}}</p>
+            
+
+            <h2>What You'll Get</h2>
              <ul class="list-unstyled list-inline pb-5">
-                        <li class="list-inline-item me-3"><i class="bi bi-heart-fill me-1" />Lecture Materials</li>
-                        <li class="list-inline-item"><i class="bi bi-arrow-down-right-circle me-1" />Interactives</li>
+                        <li v-if="course.hasLectures" class="list-inline-item me-3"><i class="bi bi-heart-fill me-1" />Lecture Materials</li>
+                        <li v-if="course.hasLabs" class="list-inline-item"><i class="bi bi-arrow-down-right-circle me-1" />Labs</li>
 
                     </ul>
 
@@ -49,22 +50,22 @@
                 <img src="../assets/t1.svg" class="card-img-top" alt="">
                 <div class="card-body">
                     <ul class="list-unstyled">
-                        <li><i class="bi bi-arrow-right me-1 h4" />Level <span class="ms-5">Over 9000</span></li>
-                        <li><i class="bi bi-arrow-right me-1 h4" />Credits <span class="ms-5">Also over 9000</span></li>
-                        <li><i class="bi bi-arrow-right me-1 h4" />Tuition <span class="ms-5">{{course.price}}</span></li>
+                        <li><i class="bi bi-arrow-right me-1 h4" />Level <span class="ms-5">{{course.courseLevel}}</span></li>
+                        <li><i class="bi bi-arrow-right me-1 h4" />Credits <span class="ms-5">{{course.creditHours}}</span></li>
+                        <li><i class="bi bi-arrow-right me-1 h4" />Tuition <span class="ms-5">{{course.coursePrice}}</span></li>
                         
                     </ul>
 
                 </div>
                 </div><!--end card-->
 
-                <p>Classes are offered starting::</p>
-                <h5>13 Fevrier 2021</h5>
+                <p>Classes are offered starting</p>
+                <h5>January 17, 2022</h5>
 
                 <a href="/home" class="btn btn-primary my-5">Enroll Now</a>
 
                 <p class="text-muted">Enroll by 6 Fevrier 2021 to reserve your spot
-                <br /><a href="/home">Here is a link</a></p>
+                <br /><a href="/get-started">Here is a link</a></p>
              </div><!--end col-->
 
 

@@ -1,5 +1,7 @@
 $green: #18c9b9;
 $red: #9e1831;
+$grey: #f2f2f2;
+$blue: #48afea;
 $primary: $green;
 $success: $red;
 //button style
@@ -12,13 +14,36 @@ $success: $red;
 }
 
 #app .btn-outline-success:hover {
-    background: #f2f2f2;
+    background: $grey;
     color: $red;
 }
 
 #app .btn-primary:hover {
     background-color: #fff;
     color: $green;
+}
+
+#app .bg-grey {
+    background-color: $grey;
+}
+
+#app .section {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#app .section .header h2 {
+    color: $red;
+    font-weight: 600;
+}
+
+#app .section .header h2:after {
+    content: "";
+    display: block;
+    margin: 20px auto;
+    position: relative;
+    width: 100px;
+    height: 5px;
+    background-color: #1c2333;
 }
 
 //Import BS after customizations
