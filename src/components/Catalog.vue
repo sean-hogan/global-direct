@@ -4,18 +4,18 @@
         <div class="row text-center justify-content-center mb-5">
         <h2 class="display-3 mb-5">Find Your Future</h2>
         <div class="col-4">
+          <!--search-->
         <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <input class="form-control me-2" type="search" v-model="filterText" placeholder="Search" aria-label="Search">
         </form>
         </div>
     </div><!--end row-->
 
     <div class="row card-wrapper row-cols-1 row-cols-3 g-4">
  <!--card-->
-  <div v-for="course in courses" class="col" :key="course.courseNumber">
+  <div v-for="course in filteredCourseList" class="col" :key="course.courseNumber">
     <div class="card h-100">
-      <img src="../assets/t1.svg" class="card-img-top" alt="">
+      <img :src="course.cardImageUrl" class="card-img-top" alt="">
       <div class="card-body d-flex flex-column">
         <h5 class="card-title">{{course.courseTitle}}</h5>
         <h6>${{course.coursePrice}}</h6>
@@ -41,24 +41,39 @@
 import {fb, db} from '../firebase';
 
 export default {
-    name: 'Catalog',
+  name: 'Catalog',
   props: {
-
+    
   },
+
   data(){
       return{
           courses: [],
-
+          filterText:'',
       }
   },
+
    created(){
       db.collection("courses").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         this.courses.push(doc.data());
-    });
-});
-  }
+        });
+      });
+  },
+
+  computed: {
+   filteredCourseList() {
+     return this.courses.filter(course => {
+       return course.courseDescription.toLowerCase().includes(this.filterText.toLowerCase()) ||
+              course.courseLevel.toLowerCase().includes(this.filterText.toLowerCase())       ||
+              course.courseNumber.toLowerCase().includes(this.filterText.toLowerCase())      ||
+              course.courseTitle.toLowerCase().includes(this.filterText.toLowerCase())
+
+     })
+   }
+},
+  
 }
 </script>
 

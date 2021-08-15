@@ -4,50 +4,59 @@
 <h3>Add A Course:</h3>
 <form @submit.prevent="addCourse">
  
-  <div class="mb-3">
+
+<div class="row">
+  <div class="col-sm-4">
+
     <input type="text" class="form-control" v-model="courseInfo.courseTitle" id="courseTitle" placeholder="Course Title" />
-  </div>
-  <div class="mb-3">
+
     <input type="text" class="form-control" v-model="courseInfo.courseNumber" id="courseNumber" placeholder="Course Number" />
-  </div>
-  <div class="mb-3">
+
     <input type="text" class="form-control" v-model="courseInfo.coursePrice" id="price" placeholder="Price" />
-  </div>
-  <div class="mb-3">
+
     <input type="text" class="form-control" v-model="courseInfo.cardText" id="cardText" placeholder="Card Text" />
-  </div>
-  <div class="mb-3">
+
     <input type="text" class="form-control" v-model="courseInfo.creditHours" id="creditHours" placeholder="Credit Hours" />
-  </div>
-  <div class="mb-3">
+
     <input type="text" class="form-control" v-model="courseInfo.courseLevel" id="courseLevel" placeholder="Level" />
-  </div>
-  <div class="mb-3">
-    <input type="text" class="form-control" v-model="courseInfo.courseSubjects" id="courseSubjects" placeholder="Subject Tags" />
-  </div>
-  <div class="mb-3">
+
+    <input type="text" class="form-control" v-model="tag" @keyup.,="addTag" id="courseSubjects" placeholder="Subject Tags" />
+    <span v-for="tag in courseInfo.courseSubjects" :key="tag.index" class="badge bg-primary text-wrap p-2 m-2 ">
+     {{ tag }}
+    </span>
+
+      <div class="form-check form-switch my-3">
+      <input class="form-check-input" v-model="courseInfo.hasLectures" type="checkbox" id="hasLectures" checked>
+      <label class="form-check-label" for="hasLectures">Has Lectures</label>
+    </div>
+
+    <div class="form-check form-switch mb-3">
+      <input class="form-check-input" v-model="courseInfo.hasLabs" type="checkbox" id="hasLabs">
+      <label class="form-check-label" for="hasLabs">Has Labs</label>
+    </div>
+  <label for="formFile" class="form-label mt-3">Card Image</label>
+<input class="form-control mb-5" type="file" @change="uploadImage" id="formFile">
+</div><!--end col-->
+
+  <div class="col-sm-8">
+
     <textarea type="text" class="form-control" v-model="courseInfo.courseDescription" id="courseDescription" placeholder="Course Page Description" />
-  </div>
-  <div class="mb-3">
-    <textarea type="text" class="form-control" v-model="courseInfo.courseObjectives" id="courseObjectives" placeholder="Course Page Objectives" />
-  </div>
 
-  <div class="form-check form-switch mb-3">
-  <input class="form-check-input" v-model="courseInfo.hasLectures" type="checkbox" id="hasLectures" checked>
-  <label class="form-check-label" for="hasLectures">Has Lectures</label>
+<div class="h-50">
+
+    <quill-editor v-model:value="courseInfo.courseObjectives" id="courseObjectives" />
 </div>
 
-<div class="form-check form-switch mb-3">
-  <input class="form-check-input" v-model="courseInfo.hasLabs" type="checkbox" id="hasLabs">
-  <label class="form-check-label" for="hasLabs">Has Labs</label>
-</div>
+
+</div><!--end col-->
+</div><!--end row-->
 
   <button type="submit" class="btn btn-primary">Save</button>
 </form>
 
 <!--------------------->
 
-<h2 class="my-5">Catalog::</h2>
+<h2 class="my-5">Catalog View::</h2>
 <!--------------------->
  <div class="row text-center justify-content-center mb-5">
         <h2 class="display-3 mb-5">Find Your Future</h2>
@@ -64,7 +73,7 @@
  <!--card-->
   <div v-for="course in courses" class="col" :key="course.courseNumber">
     <div class="card">
-      <img src="../assets/t1.svg" class="card-img-top" alt="">
+      <img :src="course.data().cardImageUrl" class="card-img-top" alt="">
       <div class="card-body">
         <h5 class="card-title">{{course.data().courseTitle}}</h5>
         <h6>${{course.data().coursePrice}}</h6>
@@ -91,43 +100,62 @@
       <div class="modal-body">
         <!------->
         <form>
-  <div class="mb-3">
+<div class="row">
+  <div class="col-sm-4">
+  
     <input type="text" class="form-control" v-model="courseInfo.courseTitle" id="courseTitle" placeholder="Course Title" />
-  </div>
-  <div class="mb-3">
+  
+  
     <input type="text" class="form-control" v-model="courseInfo.courseNumber" id="courseNumber" placeholder="Course Number" />
-  </div>
-  <div class="mb-3">
+  
+  
     <input type="text" class="form-control" v-model="courseInfo.coursePrice" id="price" placeholder="Price" />
-  </div>
-  <div class="mb-3">
+  
+  
     <input type="text" class="form-control" v-model="courseInfo.cardText" id="cardText" placeholder="Card Text" />
-  </div>
-  <div class="mb-3">
+  
+  
     <input type="text" class="form-control" v-model="courseInfo.creditHours" id="creditHours" placeholder="Credit Hours" />
-  </div>
-  <div class="mb-3">
+  
+  
     <input type="text" class="form-control" v-model="courseInfo.courseLevel" id="courseLevel" placeholder="Level" />
-  </div>
-  <div class="mb-3">
-    <input type="text" class="form-control" v-model="courseInfo.courseSubjects" id="courseSubjects" placeholder="Subject Tags" />
-  </div>
-  <div class="mb-3">
+  
+  
+<!-- <input type="text" class="form-control" v-model="tag" @keyup.,="addTag" id="courseSubjects" placeholder="Subject Tags" /> -->
+    <span v-for="tag in courseInfo.courseSubjects" :key="tag.index" class="badge bg-primary text-wrap p-2 m-2 ">
+     {{ tag }}
+    </span>
+
+      <div class="form-check form-switch mb-3">
+      <input class="form-check-input" v-model="courseInfo.hasLectures" type="checkbox" id="hasLectures" checked>
+      <label class="form-check-label" for="hasLectures">Has Lectures</label>
+    </div>
+
+    <div class="form-check form-switch mb-3">
+      <input class="form-check-input" v-model="courseInfo.hasLabs" type="checkbox" id="hasLabs">
+      <label class="form-check-label" for="hasLabs">Has Labs</label>
+    </div>
+  
+    <label for="formFile" class="form-label">Card Image I guess</label>
+    <input class="form-control" type="file" id="formFile">
+
+  </div><!--end col-->
+
+
+  
+  <div class="col-sm-8">
+
+  
     <textarea type="text" class="form-control" v-model="courseInfo.courseDescription" id="courseDescription" placeholder="Course Page Description" />
-  </div>
-  <div class="mb-3">
-    <textarea type="text" class="form-control" v-model="courseInfo.courseObjectives" id="courseObjectives" placeholder="Course Page Objectives" />
-  </div>
+  
+    <div class="h-50">
+    <quill-editor v-model:value="courseInfo.courseObjectives" id="courseObjectives" />
+    </div>
+  
+  </div><!--end col-->
 
-  <div class="form-check form-switch mb-3">
-  <input class="form-check-input" v-model="courseInfo.hasLectures" type="checkbox" id="hasLectures" checked>
-  <label class="form-check-label" for="hasLectures">Has Lectures</label>
-</div>
 
-<div class="form-check form-switch mb-3">
-  <input class="form-check-input" v-model="courseInfo.hasLabs" type="checkbox" id="hasLabs">
-  <label class="form-check-label" for="hasLabs">Has Labs</label>
-</div>
+</div><!--end row-->
       </form>
 
 <!--------------->
@@ -147,11 +175,14 @@
 <script>
 import {fb, db} from '../firebase';
 import { Modal } from 'bootstrap'
+import { quillEditor, Quill } from 'vue3-quill'
+
 
 
 export default {
     name: 'CatalogEdit',
     components: {
+      quillEditor,
       },
     props: {
 
@@ -165,9 +196,10 @@ export default {
             courseNumber:null,
             coursePrice:null,
             cardText:null,
+            cardImageUrl:null,
             creditHours:null,
             courseLevel:null,
-            courseSubjects:null,
+            courseSubjects:[],
             courseDescription:null,
             courseObjectives:null,
             hasLectures:null,
@@ -175,6 +207,7 @@ export default {
 
           },
           activeItem:null,
+          tag:null,
 
       }
   },
@@ -233,6 +266,38 @@ export default {
             });
         },
 
+        addTag() {
+          this.courseInfo.courseSubjects.push(this.tag.slice(0, -1));
+          this.tag = "";
+
+        },
+
+        uploadImage(e) {
+          let file = e.target.files[0];
+          // Create a root reference
+          var storageRef = fb.storage().ref('courses/' + file.name);
+          let uploadTask = storageRef.put(file);
+
+          uploadTask.on('state_changed', 
+              (snapshot) => {
+                //observing progress
+               
+              }, 
+              (error) => {
+                // Handle unsuccessful uploads
+              }, 
+              () => {
+                // Handle successful uploads on complete
+                // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+                uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                  this.courseInfo.cardImageUrl = downloadURL;
+                  console.log('File available at', downloadURL);
+                });
+              }
+            ); //end uploadtask
+
+        },
+
 
   },
   created(){
@@ -251,5 +316,9 @@ export default {
 
 .modal-dialog {
   max-width:80%
+}
+
+input, textarea {
+  margin-bottom:10px;
 }
 </style>

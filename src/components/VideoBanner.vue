@@ -4,7 +4,7 @@
             <source src="../assets/30-SEC-LOOP.mp4" type="video/mp4">
         </video>
 </div>
-<div class="header text-white text-center my-5">
+<div class="header text-white text-center">
     <h1 class="display-1">Here is a video banner</h1>
 </div>
 

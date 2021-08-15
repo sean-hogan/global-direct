@@ -10,7 +10,9 @@
                     <h3 class="display-4">{{course.courseTitle}}</h3>
                     <ul class="list-unstyled list-inline">
                         <li class="list-inline-item">Course ID: <strong>{{course.courseNumber}}</strong></li>
-                        <li class="list-inline-item">Subjects: <strong>{{course.courseSubjects}}</strong></li>
+                        <li class="list-inline-item">Subjects: <span v-for="tag in course.courseSubjects" :key="tag.index" class="badge bg-primary text-wrap p-2 m-2 ">
+                          {{ tag }}
+                          </span></li>
 
                     </ul>
 
@@ -21,7 +23,7 @@
             </article>
 
             <h2 class="my-3">Key Takeaways</h2>
-            <p>{{course.courseObjectives}}</p>
+            <div v-html="course.courseObjectives"></div>
             
 
             <h2>What You'll Get</h2>
@@ -47,7 +49,7 @@
 
          <div class="col-sm-4">
              <div class="card mb-4" style="width: 18rem;">
-                <img src="../assets/t1.svg" class="card-img-top" alt="">
+                <img :src="course.cardImageUrl" class="card-img-top" alt="">
                 <div class="card-body">
                     <ul class="list-unstyled">
                         <li><i class="bi bi-arrow-right me-1 h4" />Level <span class="ms-5">{{course.courseLevel}}</span></li>
@@ -93,7 +95,7 @@
   </div><!--End Container-->
 </div><!--end bg sections-->
 
-<CourseRFI />
+<AdvisorCallToAction />
 <RelatedCourses />
 
   <Footer />
@@ -102,7 +104,7 @@
 
 <script>
 // @ is an alias to /src
-import CourseRFI from '@/components/CourseRFI.vue'
+import AdvisorCallToAction from '@/components/AdvisorCallToAction.vue'
 import RelatedCourses from '@/components/RelatedCourses.vue'
 import Footer from '@/components/Footer.vue'
 import {fb, db} from '../firebase';
@@ -110,7 +112,7 @@ import {fb, db} from '../firebase';
 export default {
   name: 'CourseTemplate',
   components: {
-    CourseRFI,
+    AdvisorCallToAction,
     RelatedCourses,
     Footer
       },
