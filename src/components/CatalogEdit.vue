@@ -2,7 +2,7 @@
 
 
 <h3>Add A Course:</h3>
-<form @submit.prevent="addCourse">
+<form id="addCourseForm">
  
 
 <div class="row">
@@ -51,7 +51,9 @@
 </div><!--end col-->
 </div><!--end row-->
 
-  <button type="submit" class="btn btn-primary">Save</button>
+  <button @click.prevent="addCourse" class="btn btn-primary">Save</button>
+  <button @click.prevent="clearForm" class="btn btn-secondary mx-4">Clear</button>
+
 </form>
 
 <!--------------------->
@@ -227,11 +229,16 @@ export default {
         .then((docRef) => {
             this.watcher();
             console.log("Document written with ID: ", docRef.id);
+            this.clearForm();
         })
         .catch((error) => {
             console.error("Error adding document: ", error);
         });
       },
+      //reset button
+      clearForm() {
+        Object.assign(this.$data, this.$options.data.apply(this));
+             },
       //delete btn
       deleteCourse(doc) {
         if(confirm('Are you super-sure ?')){

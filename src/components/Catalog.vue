@@ -5,8 +5,16 @@
         <h2 class="display-3 mb-5">Find Your Future</h2>
         <div class="col-4">
           <!--search-->
-        <form class="d-flex">
-            <input class="form-control me-2" type="search" v-model="filterText" placeholder="Search" aria-label="Search">
+        <form>
+
+            <input class="form-control me-2 mb-3" type="search" v-model="filterText" placeholder="Search" aria-label="Search">
+          
+
+            <select class="form-select" aria-label="Default select example">
+              <option>All Subjects</option>
+              <option v-for="subject in subjects" :key="subject" :value="subject">{{subject}}</option>
+            </select>
+          
         </form>
         </div>
     </div><!--end row-->
@@ -50,6 +58,7 @@ export default {
       return{
           courses: [],
           filterText:'',
+          subjects: [],
       }
   },
 
@@ -58,8 +67,22 @@ export default {
         querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         this.courses.push(doc.data());
+        this.courses.forEach(course => {
+          course.courseSubjects.forEach((subject) => {
+              if (this.subjects.includes(subject)) {
+                //
+              } else {
+              this.subjects.push(subject);  
+
+              }
+          })
         });
       });
+      
+
+      })
+
+      
   },
 
   computed: {
@@ -71,7 +94,9 @@ export default {
               course.courseTitle.toLowerCase().includes(this.filterText.toLowerCase())
 
      })
-   }
+   },
+
+
 },
   
 }

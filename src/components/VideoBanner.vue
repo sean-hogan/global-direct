@@ -4,8 +4,9 @@
             <source src="../assets/30-SEC-LOOP.mp4" type="video/mp4">
         </video>
 </div>
-<div class="header text-white text-center">
-    <h1 class="display-1">Here is a video banner</h1>
+<div class="header text-white text-center mt-4">
+    <h1 class="display-1">Experience the Global Difference</h1>
+    <p class="h3">Born from tradition, evolved for modern learners</p>
 </div>
 
 </template>
@@ -24,7 +25,7 @@ export default {
 .fullscreen-bg {
     top: 0;
     right: 0;
-    bottom: 0;
+    bottom: 100px;
     left: 0;
     overflow: hidden;
     z-index: -100;
@@ -33,6 +34,10 @@ export default {
 }
 
 .header {
-    height: 100vh
+    height: 60vh;
+}
+
+.fullscreen-bg_video {
+    opacity : .2;
 }
 </style>

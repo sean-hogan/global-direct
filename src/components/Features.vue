@@ -1,6 +1,6 @@
 <template>
 <div class="features section">
-    <div class="container px-4 py-5">
+    <div class="container px-5 pt-5">
         <div class="text-center header">
         <h2>Flexibility for the Modern Learner</h2>
         </div>
@@ -45,5 +45,6 @@ export default {
 img {
     margin-bottom:1rem;
 }
+
 
 </style>

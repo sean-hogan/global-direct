@@ -43,7 +43,6 @@ export default {
 <style scoped lang="scss">
 .navbar {
   border-bottom: 1px solid #ddd;
-  margin-bottom: 2rem;
 }
 .logo {
   font-family: industry, sans-serif!important;

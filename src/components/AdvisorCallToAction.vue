@@ -3,9 +3,10 @@
     <div class="container px-4 py-5 text-center">
        <div class="row">
             <div class="col-sm-4 text-center" style="padding:20px;">
-                <h2>Give us a call!</h2>
-                <p>Connect with one of our Enrollment Counselors during normal business hours by calling:<span style="display:block; font-size:26px; font-weight:700;"><a href="tel:800-462-7845">(800) 462-7845</a></span></p>
-                <p>(Normal business hours: 7am-5pm M-F MST)</p>
+                <h2>Get Started Now!</h2>
+                <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text :</p>
+                    <a href="/get-started" class="btn btn-primary">Register</a>
+                <!-- <p>(Normal business hours: 7am-5pm M-F MST)</p> -->
             </div>
             <div class="col-sm-4 text-center" style="background-color:#f3f3f3; padding:20px;">
                 <div id="rfifull" class="bl5 br5">
