@@ -5,6 +5,7 @@
   <Catalog />
   <Testimonials />
   <SchoolFeature />
+  <PictureCardFeatures />
   <AdvisorCallToAction />
   <Footer />
   </div>
@@ -17,6 +18,7 @@ import Features from '@/components/Features.vue'
 import Catalog from '@/components/Catalog.vue'
 import Testimonials from '@/components/Testimonials.vue'
 import SchoolFeature from '@/components/SchoolFeature.vue'
+import PictureCardFeatures from '@/components/PictureCardFeatures.vue'
 import AdvisorCallToAction from '@/components/AdvisorCallToAction.vue'
 import Footer from '@/components/Footer.vue'
 
@@ -28,6 +30,7 @@ export default {
     Catalog,
     Testimonials,
     SchoolFeature,
+    PictureCardFeatures,
     AdvisorCallToAction,
     Footer
   }

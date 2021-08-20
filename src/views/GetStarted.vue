@@ -4,9 +4,9 @@
 
 <GetStartedBanner />
 <GetStartedBrief />
+<GetStartedFAQ />
 <GetStartedFeature />
 <GetStartedSteps />
-<GetStartedFAQ />
 </div><!--End Container-->
 <AdvisorCallToAction />
 
@@ -25,9 +25,9 @@
 
 import GetStartedBanner from '@/components/GetStartedBanner.vue'
 import GetStartedBrief from '@/components/GetStartedBrief.vue'
+import GetStartedFAQ from '@/components/GetStartedFAQ.vue'
 import GetStartedFeature from '@/components/GetStartedFeature.vue'
 import GetStartedSteps from '@/components/GetStartedSteps.vue'
-import GetStartedFAQ from '@/components/GetStartedFAQ.vue'
 import AdvisorCallToAction from '@/components/AdvisorCallToAction.vue'
 import Footer from '@/components/Footer.vue'
 
@@ -36,9 +36,9 @@ export default {
   components: {
     GetStartedBanner,
     GetStartedBrief,
+    GetStartedFAQ,
     GetStartedFeature,
     GetStartedSteps,
-    GetStartedFAQ,
     AdvisorCallToAction,
     Footer,
       }

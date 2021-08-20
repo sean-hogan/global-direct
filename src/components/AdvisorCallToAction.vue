@@ -5,7 +5,7 @@
             <div class="col-sm-4 text-center" style="padding:20px;">
                 <h2>Get Started Now!</h2>
                 <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text :</p>
-                    <a href="/get-started" class="btn btn-primary">Register</a>
+                    <a href="/get-started" class="btn btn-outline-primary">Register</a>
                 <!-- <p>(Normal business hours: 7am-5pm M-F MST)</p> -->
             </div>
             <div class="col-sm-4 text-center" style="background-color:#f3f3f3; padding:20px;">
@@ -64,5 +64,9 @@ export default {
 <style scoped lang="scss">
 .form-control {
   margin-bottom:5px;
+}
+
+.btn-outline-primary:hover {
+    color:#eee;
 }
 </style>
