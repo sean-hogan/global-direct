@@ -1,6 +1,6 @@
 <template>
 
-  <div v-for="course in courses" :key="course.courseNumber" class="course container px-5">
+  <div class="course container px-5 py-5">
 
     <div class="row g-5">
 
@@ -76,7 +76,7 @@
 
   </div><!--End Container-->
 
-<div class="section bg-primary py-5">
+<div class="section bg-grey py-5">
   <div class="how-this-works container">
 
     <div class="row">
@@ -95,8 +95,44 @@
   </div><!--End Container-->
 </div><!--end bg sections-->
 
+<!--------------related courses------>
+<div class="related-courses section bg-white">
+    <div class="container px-4 py-5">
+        <div class="row text-center">
+
+<h4 class="display-2 mb-5">Related Courses</h4>
+        </div><!--End Row-->
+
+        <div class="row card-wrapper row-cols-1 row-cols-4 g-4">
+            <!--course card-->
+                <div v-for="course in relatedCourses" class="col" :key="course.courseNumber">
+                  <div class="course card h-100">
+                    <img :src="course.cardImageUrl" class="card-img-top" alt="">
+                    <div class="card-body d-flex flex-column">
+                      <h5 class="card-title">{{course.courseTitle}}</h5>
+
+                      <div class="d-flex flex-row">
+                      <span v-for="tag in course.courseSubjects" :key="tag.index" class="badge bg-grey text-dark text-wrap p-2 m-1 ">
+                          {{ tag }}
+                          </span>
+                          </div>
+                      <p class="card-text">{{course.cardText}}</p>
+                      <div class="mt-auto me-auto">
+
+                      <h5>${{course.coursePrice}}</h5>
+                      <router-link class="btn btn-outline-secondary" :to="{ name: 'CourseTemplate', params: { id: course.courseNumber }}">More Info</router-link>
+                      </div>
+                  
+                    </div>
+                  </div>
+                </div><!--end course card-->
+            
+        </div><!--end row-->
+
+    </div><!--end container-->
+    </div><!--end related coursessection-->
 <AdvisorCallToAction />
-<RelatedCourses />
+
 
   <Footer />
 </template>
@@ -104,21 +140,22 @@
 
 <script>
 // @ is an alias to /src
+//import RelatedCourses from '@/components/RelatedCourses.vue'
 import AdvisorCallToAction from '@/components/AdvisorCallToAction.vue'
-import RelatedCourses from '@/components/RelatedCourses.vue'
 import Footer from '@/components/Footer.vue'
 import {fb, db} from '../firebase';
 
 export default {
   name: 'CourseTemplate',
   components: {
+    //RelatedCourses,
     AdvisorCallToAction,
-    RelatedCourses,
     Footer
       },
   data(){
     return{
-      courses:[],
+      course:{},
+      relatedCourses:[],
 
       }
   },
@@ -127,13 +164,35 @@ export default {
       .get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, " => ", doc.data());
-        this.courses.push(doc.data());
-        console.log(this.courses);
-    });
-});
-  }
+        this.course = doc.data();
+        });
+      });
+     
+    },
+     updated(){
+      this.$nextTick(function () {
+        if (this.relatedCourses == "") {
+          db.collection("courses").where("courseSubjects", "array-contains-any", this.course.courseSubjects)
+          .get().then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              // doc.data() is never undefined for query doc snapshots
+              if (doc.data().courseTitle !== this.course.courseTitle) {
+              this.relatedCourses.push(doc.data());
+              }
+            });
+          });
+        }})
+      
+     
+    },
+  
+     
+
+
 }
 </script>
+
+
+    
 
 

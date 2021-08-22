@@ -55,4 +55,8 @@ export default {
   border-radius: 0;
 }
 
+.nav-link {
+  font-weight: 600;
+}
+
 </style>

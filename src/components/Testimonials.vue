@@ -12,7 +12,7 @@
 
             <Slide key="two">
             <div class="carousel__item" >
-                <p class="quote">"The pride I have in achieving a Masters Degree from CSU Global provided me with the confidence to attain the career plan I had envisitwood."</p><p class="student">Scott Ryder</p><p class="degree">Student</p>
+                <p class="quote">"The pride I have in achieving a Masters Degree from CSU Global provided me with the confidence to attain the career plan I had envisioned."</p><p class="student">Scott Ryder</p><p class="degree">Student</p>
             </div>
             </Slide>
 

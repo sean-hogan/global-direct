@@ -24,18 +24,40 @@
                 </div>
                 </div>
             </div>
-        </div>
+        </div><!--end row-->
 
     </div><!--end container-->
     </div><!--end section-->
 </template>
 
 <script>
+import {fb, db} from '../firebase';
+
 export default {
   name: 'RelatedCourses',
   props: {
+ 
 
   },
+  data(){
+    return{
+      relatedCourses:[],
+
+      }
+  },
+   updated(){
+      this.$nextTick(function () {
+          console.log(this.$parent)
+        db.collection("courses").where("courseSubjects", "array-contains-any", this.$parent.course.courseSubjects)
+      .get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        this.relatedCourses.push(doc.data());
+        });
+      });
+      })
+     
+    },
 }
 </script>
 
