@@ -1,24 +1,16 @@
 # olp-2-test
 
-## Project setup
-```
-npm install
-```
+Description
+-----------
+Vue app to catalog and sell a subset of courses for the university. Spun up with Vue CLI. A lot of plugins aren't supporting Vue 3 yet, so I'm doing a lot of things "the Vue 2 way". It utilizes an admin panel to input dynamic course content into a firebase instance, which also manages users.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+Upcoming Features
+--------------
+Hope to implement cart and user profile features as well as process payments and enroll students.
 
-### Compiles and minifies for production
-```
+
+How to build
+----------
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+_grip it and rip it_

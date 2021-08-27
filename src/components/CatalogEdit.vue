@@ -147,7 +147,7 @@
     </div>
   
     <label for="formFile" class="form-label">Card Image</label>
-    <input class="form-control" type="file" id="formFile">
+    <input class="form-control mb-5" type="file" @change="uploadImage" id="formFile">
     <div v-show="courseInfo.cardImageUrl" class="w-25 mb-3 catalog-image-wrap">
       <img class="img-thumbnail" :src="courseInfo.cardImageUrl" alt="" />
       <span class="delete-img" @click="deleteImage(courseInfo.cardImageUrl)">X</span>
