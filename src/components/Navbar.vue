@@ -13,10 +13,13 @@
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             
             <li class="nav-item px-3">
-            <router-link class="nav-link" active-class="active" to="/#catalog">Catalog</router-link>
+            <router-link class="nav-link" to="/#catalog">Catalog</router-link>
             </li>
             <li class="nav-item px-3">
-            <router-link class="nav-link" active-class="active" to="/about">About</router-link>
+            <router-link class="nav-link" to="/#faq">FAQ</router-link>
+            </li>
+            <li class="nav-item px-3">
+            <router-link class="nav-link" to="/about">About</router-link>
             </li>
             
             <li class="nav-item px-3">
@@ -56,6 +59,7 @@ export default {
 }
 
 .nav-link {
+  font-size: 1.1rem;
   font-weight: 600;
 }
 

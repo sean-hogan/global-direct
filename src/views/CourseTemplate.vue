@@ -117,10 +117,11 @@
                           </span>
                           </div>
                       <p class="card-text">{{course.cardText}}</p>
+
                       <div class="mt-auto me-auto">
 
-                      <h5>${{course.coursePrice}}</h5>
-                      <router-link class="btn btn-outline-secondary" :to="{ name: 'CourseTemplate', params: { id: course.courseNumber }}">More Info</router-link>
+                        <h5>${{course.coursePrice}}</h5>
+                        <router-link class="btn btn-outline-secondary" :to="{ name: 'CourseTemplate', params: { id: course.courseNumber }}">More Info</router-link>
                       </div>
                   
                     </div>

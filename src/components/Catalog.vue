@@ -3,7 +3,7 @@
     <div class="container px-4 py-5">
         <div class="row text-center justify-content-center mb-5">
                 <h2 class="display-3 mb-5">Find Your Future</h2>
-                <p class="lead">Find your course, enroll using our portal. If not, call 850-443-2200 to get help from an Enrollment Representative.</p>
+                <p class="lead">Find your course, enroll using our portal. If you need any assitance, call 850-443-2200 to get help from an Enrollment Representative.</p>
         </div>
         <div class="card"><!--big card-->
         <div class="card-header p-5">
@@ -13,36 +13,41 @@
                     <div class="col-sm-12">
 
                   <!--search-->
-                    <input class="form-control me-2 mb-3" type="search" v-model="filterText" placeholder="Search" aria-label="Search">
+                  <div class="input-group mb-3">
+                    <input class="form-control" type="search" id="search-input" v-model="filterText" placeholder="Search" aria-label="Search">
+                    <span class="input-group-text" id="search-icon"><i class="bi bi-search"></i></span>
+                  </div>
+                    
+
                     </div><!--end search bar col-->
                     </div><!--end search bar row-->
                   <div class="row">
 
-                  <div class="col">
+                  <div class="col-md-4">
 
                     <!--subject select-->
-                    <select class="form-select" aria-label="Default select example" v-model="selectedSubject">
+                    <select class="form-select mb-3 mb-md-0" aria-label="Default select example" v-model="selectedSubject">
                       <option value="">All Subjects</option>
                       <option v-for="subject in subjects" :key="subject" :value="subject">{{subject}}</option>
                     </select>
                   </div><!--end form col-->
 
-                  <div class="col">
+                  <div class="col-md-4">
 
                     <!--subject select-->
                     <select class="form-select" aria-label="Default select example" v-model="selectedLevel">
                       <option value="">All Levels</option>
-                      <!-- <option v-for="subject in subjects" :key="subject" :value="subject">{{subject}}</option> -->
+                      <option v-for="level in levels" :key="level" :value="level">{{level}}</option>
                     </select>
                   </div><!--end form col-->
 
-                  <div class="col">
+                  <div class="col-md-4">
 
                     <!--subject select-->
-                    <select class="form-select" aria-label="Default select example" v-model="selectedStart">
+                    <!--<select class="form-select" aria-label="Default select example" v-model="selectedStart">
                       <option value="">All Start Dates</option>
-                      <!-- <option v-for="subject in subjects" :key="subject" :value="subject">{{subject}}</option> -->
-                    </select>
+                       <option v-for="subject in subjects" :key="subject" :value="subject">{{subject}}</option> 
+                    </select>-->
                   </div><!--end form col-->
                   
                 </div><!--end form header row-->
@@ -51,7 +56,7 @@
                
           <div class="card-body">
 
-            <div class="row card-wrapper row-cols-1 row-cols-4 g-4"><!--course card row-->
+            <div class="row card-wrapper row-cols-1 row-cols-md-4 g-4"><!--course card row-->
               
               <!--course card-->
                 <div v-for="course in filteredCourseList" class="col" :key="course.courseNumber">
@@ -100,6 +105,9 @@ export default {
           courses: [],
           filterText:'',
           subjects: [],
+          levels: [],
+          starts:[],
+
           selectedSubject: '',
           selectedLevel: '',
           selectedStart: '',
@@ -112,8 +120,14 @@ export default {
         querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         this.courses.push(doc.data());
-        // while calling courses also populates subject listing for filter
+        // while calling courses also populates subject & levels listing for filter
         this.courses.forEach(course => {
+            if (this.levels.includes(course.courseLevel)) {
+              //
+            } else {
+              this.levels.push(course.courseLevel)
+            }
+
           course.courseSubjects.forEach((subject) => {
               if (this.subjects.includes(subject)) {
                 //
@@ -139,7 +153,8 @@ export default {
                course.courseTitle.toLowerCase().includes(this.filterText.toLowerCase())
        } else if (this.selectedSubject) {
          return course.courseSubjects.includes(this.selectedSubject) && 
-                course.courseDescription.toLowerCase().includes(this.filterText.toLowerCase())
+                (course.courseDescription.toLowerCase().includes(this.filterText.toLowerCase()) ||
+                course.courseTitle.toLowerCase().includes(this.filterText.toLowerCase()))
        } else {
           return course
 
@@ -162,5 +177,13 @@ export default {
 .course.card:hover{
      transform: scale(1.05);
   box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+#search-icon {
+  background-color:#fff;
+}
+
+#search-input {
+  border-right:none;
 }
 </style>

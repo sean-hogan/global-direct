@@ -3,7 +3,7 @@
 <VideoBanner />
 <CardFeatures />
 <SchoolFeature />
-<TopTenFeature />
+<RecognitionFeature />
 <Features />
 <AdvisorCallToAction />
 <Footer />
@@ -18,7 +18,7 @@
 import VideoBanner from '@/components/VideoBanner.vue'
 import CardFeatures from '@/components/CardFeatures.vue'
 import SchoolFeature from '@/components/SchoolFeature.vue'
-import TopTenFeature from '@/components/TopTenFeature.vue'
+import RecognitionFeature from '@/components/RecognitionFeature.vue'
 import Features from '@/components/Features.vue'
 import AdvisorCallToAction from '@/components/AdvisorCallToAction.vue'
 import Footer from '@/components/Footer.vue'
@@ -30,7 +30,7 @@ export default {
     VideoBanner,
     CardFeatures,
     SchoolFeature,
-    TopTenFeature,
+    RecognitionFeature,
     Features,
     AdvisorCallToAction,
     Footer

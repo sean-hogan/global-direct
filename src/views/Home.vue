@@ -3,6 +3,7 @@
   <HomeHero />
   <Features />
   <Catalog />
+  <FAQ />
   <Testimonials />
   <SchoolFeature />
   <PictureCardFeatures />
@@ -16,6 +17,7 @@
 import HomeHero from '@/components/HomeHero.vue'
 import Features from '@/components/Features.vue'
 import Catalog from '@/components/Catalog.vue'
+import FAQ from '@/components/FAQ.vue'
 import Testimonials from '@/components/Testimonials.vue'
 import SchoolFeature from '@/components/SchoolFeature.vue'
 import PictureCardFeatures from '@/components/PictureCardFeatures.vue'
@@ -28,6 +30,7 @@ export default {
     HomeHero,
     Features,
     Catalog,
+    FAQ,
     Testimonials,
     SchoolFeature,
     PictureCardFeatures,

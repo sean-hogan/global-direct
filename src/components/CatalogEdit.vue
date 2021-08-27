@@ -22,7 +22,7 @@
 
     <input type="text" class="form-control" v-model="tag" @keyup.,="addTag" id="courseSubjects" placeholder="Subject Tags" />
     <span v-for="tag in courseInfo.courseSubjects" :key="tag.index" class="badge bg-primary text-wrap p-2 m-2 ">
-     {{ tag }}
+     <span class="delete-tag  pe-2" @click="deleteTag(tag,tag.index)">X</span>{{ tag }}
     </span>
 
       <div class="form-check form-switch my-3">
@@ -34,8 +34,16 @@
       <input class="form-check-input" v-model="courseInfo.hasLabs" type="checkbox" id="hasLabs">
       <label class="form-check-label" for="hasLabs">Has Labs</label>
     </div>
-  <label for="formFile" class="form-label mt-3">Card Image</label>
-<input class="form-control mb-5" type="file" @change="uploadImage" id="formFile">
+  
+      <label for="formFile" class="form-label mt-3">Card Image</label>
+    <input class="form-control mb-5" type="file" @change="uploadImage" id="formFile">
+
+    <div v-show="courseInfo.cardImageUrl" class="w-25 mb-3 catalog-image-wrap">
+      <img class="img-thumbnail" :src="courseInfo.cardImageUrl" alt="" />
+      <span class="delete-img" @click="deleteImage(courseInfo.cardImageUrl)">X</span>
+    </div>
+
+
 </div><!--end col-->
 
   <div class="col-sm-8">
@@ -138,8 +146,13 @@
       <label class="form-check-label" for="hasLabs">Has Labs</label>
     </div>
   
-    <label for="formFile" class="form-label">Card Image I guess</label>
+    <label for="formFile" class="form-label">Card Image</label>
     <input class="form-control" type="file" id="formFile">
+    <div v-show="courseInfo.cardImageUrl" class="w-25 mb-3 catalog-image-wrap">
+      <img class="img-thumbnail" :src="courseInfo.cardImageUrl" alt="" />
+      <span class="delete-img" @click="deleteImage(courseInfo.cardImageUrl)">X</span>
+
+    </div>
 
   </div><!--end col-->
 
@@ -259,7 +272,7 @@ export default {
         this.courseInfo = course.data();
         this.activeItem = course.id;
     },
-        
+        //update course modal
         updateCourse() {
             db.collection("courses").doc(this.activeItem).update(this.courseInfo)
             .then(() => {
@@ -272,13 +285,13 @@ export default {
                 console.error("Error updating document: ", error);
             });
         },
-
+        //subject tags
         addTag() {
           this.courseInfo.courseSubjects.push(this.tag.slice(0, -1));
           this.tag = "";
 
         },
-
+        //upload image and store url with course object
         uploadImage(e) {
           let file = e.target.files[0];
           // Create a root reference
@@ -304,6 +317,21 @@ export default {
             ); //end uploadtask
 
         },
+        //delet image from storage
+        deleteImage(img) {
+          let image = fb.storage().refFromURL(img);
+          this.courseInfo.cardImageUrl = '';
+          image.delete().then(() => {
+            console.log('File deleted successfully');
+          }).catch((error) => {
+            console.log('Uh-oh, an error occurred!');
+          });
+        },
+        //delet subject tags
+        deleteTag(tag,index) {
+          this.courseInfo.courseSubjects.splice(index,1);
+
+        }
 
 
   },
@@ -327,5 +355,22 @@ export default {
 
 input, textarea {
   margin-bottom:10px;
+}
+
+.catalog-image-wrap {
+  position:relative;
+}
+.catalog-image-wrap .delete-img {
+  position: absolute;
+  top:-20px;
+  left:-10px;
+}
+
+.catalog-image-wrap .delete-img:hover {
+  cursor:pointer;
+}
+
+.delete-tag:hover{
+  cursor:pointer;
 }
 </style>
