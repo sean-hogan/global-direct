@@ -6,7 +6,7 @@
 
         <div class="col-sm-8">
             <article>
-                <header>
+                <header class="mb-3">
                     <h3 class="display-4">{{course.courseTitle}}</h3>
                     <ul class="list-unstyled list-inline">
                         <li class="list-inline-item">Course ID: <strong>{{course.courseNumber}}</strong></li>
@@ -15,6 +15,7 @@
                           </span></li>
 
                     </ul>
+                    <div v-if="course.recommendedPrerequisites">Recommended Prerequisites: {{course.recommendedPrerequisites}}</div>
 
                 </header>
 
@@ -35,7 +36,7 @@
 
                     <hr />
                     <h5 class="my-3">Call to Social</h5>
-             <ul class="list-unstyled list-inline pb-5">
+                    <ul class="list-unstyled list-inline pb-5">
                         <li class="list-inline-item"><i class="bi bi-facebook me-1 h4" /></li>
                         <li class="list-inline-item"><i class="bi bi-instagram me-1 h4" /></li>
                         <li class="list-inline-item"><i class="bi bi-linkedin me-1 h4" /></li>
@@ -68,6 +69,9 @@
 
                 <p class="text-muted">Enroll by 6 Fevrier 2021 to reserve your spot
                 <br /><a href="/get-started">Here is a link</a></p>
+
+                <p v-if="course.includesBook">This course includes the book</p>
+                <p v-else>This course does not include the book</p>
              </div><!--end col-->
 
 
@@ -131,7 +135,7 @@
         </div><!--end row-->
 
     </div><!--end container-->
-    </div><!--end related coursessection-->
+    </div><!--end related courses section-->
 <AdvisorCallToAction />
 
 
@@ -141,7 +145,6 @@
 
 <script>
 // @ is an alias to /src
-//import RelatedCourses from '@/components/RelatedCourses.vue'
 import AdvisorCallToAction from '@/components/AdvisorCallToAction.vue'
 import Footer from '@/components/Footer.vue'
 import {fb, db} from '../firebase';
@@ -149,7 +152,6 @@ import {fb, db} from '../firebase';
 export default {
   name: 'CourseTemplate',
   components: {
-    //RelatedCourses,
     AdvisorCallToAction,
     Footer
       },

@@ -1,7 +1,7 @@
 <template>
  <div class="fullscreen-bg">
         <video loop muted autoplay class="fullscreen-bg_video">
-            <source src="../assets/30-SEC-LOOP.mp4" type="video/mp4">
+            <source src="https://csuglobal.edu/campus-tour/assets/images/30-SEC-LOOP.mp4" type="video/mp4">
         </video>
 </div>
 <div class="header text-white text-center mt-4">

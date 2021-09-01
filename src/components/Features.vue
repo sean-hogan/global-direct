@@ -6,22 +6,22 @@
         </div>
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-4 text-center">
         <div class="col">
-            <img src="../assets/f1.png" />
+            <img src="https://images.prismic.io/csug/2626203d-8921-4442-9505-30098fbd4969_icon_100_online.png" />
             <p>ACCREDITED ONLINE DEGREES</p>
         </div><!--end col-->
 
         <div class="col">
-            <img src="../assets/f2.png" />
+            <img src="https://images.prismic.io/csug/d7364a0d-f0b5-4697-9058-25cdd23fbeb5_icon_no_set_times.png" />
             <p>NO SET TIMES OR LOCATIONS</p>
         </div><!--end col-->
 
         <div class="col">
-            <img src="../assets/f3.png" />
+            <img src="https://images.prismic.io/csug/ea1b65b1-1dea-4515-a4b6-fc364bd0b700_icon_monthly_start.png" />
             <p>MONTHLY CLASS STARTS</p>
         </div><!--end col-->
 
         <div class="col">
-            <img src="../assets/f4.png" />
+            <img src="https://images.prismic.io/csug/50f7f59c-6282-41e7-aa9e-5effb5cc2367_icon_accelerated.png" />
             <p>ACCELERATED COURSES</p>
         </div><!--end col-->
 

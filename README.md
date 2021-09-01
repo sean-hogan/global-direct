@@ -11,6 +11,7 @@ Hope to implement cart and user profile features as well as process payments and
 
 How to build
 ----------
-npm run build
 ```
+npm run build
+
 _grip it and rip it_

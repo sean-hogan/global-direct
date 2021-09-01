@@ -21,8 +21,9 @@
     <input type="text" class="form-control" v-model="courseInfo.courseLevel" id="courseLevel" placeholder="Level" />
 
     <input type="text" class="form-control" v-model="tag" @keyup.,="addTag" id="courseSubjects" placeholder="Subject Tags" />
-    <span v-for="tag in courseInfo.courseSubjects" :key="tag.index" class="badge bg-primary text-wrap p-2 m-2 ">
-     <span class="delete-tag  pe-2" @click="deleteTag(tag,tag.index)">X</span>{{ tag }}
+
+    <span v-for="tag in courseInfo.courseSubjects" :key="tag.index" class="badge bg-primary text-wrap p-2 m-2">
+     <span class="delete-tag pe-2" @click="deleteTag(tag,tag.index)">X</span>{{ tag }}
     </span>
 
       <div class="form-check form-switch my-3">
@@ -34,6 +35,12 @@
       <input class="form-check-input" v-model="courseInfo.hasLabs" type="checkbox" id="hasLabs">
       <label class="form-check-label" for="hasLabs">Has Labs</label>
     </div>
+
+    <div class="form-check form-switch mb-3">
+      <input class="form-check-input" v-model="courseInfo.includesBook" type="checkbox" id="includesBook">
+      <label class="form-check-label" for="includesBook">Includes Book</label>
+    </div>
+  
   
       <label for="formFile" class="form-label mt-3">Card Image</label>
     <input class="form-control mb-5" type="file" @change="uploadImage" id="formFile">
@@ -47,8 +54,9 @@
 </div><!--end col-->
 
   <div class="col-sm-8">
-
     <textarea type="text" class="form-control" v-model="courseInfo.courseDescription" id="courseDescription" placeholder="Course Page Description" />
+
+    <input type="text" class="form-control" v-model="courseInfo.recommendedPrerequisites" id="courseLevel" placeholder="Recommended Prereqs" />
 
 <div class="h-50">
 
@@ -131,9 +139,9 @@
     <input type="text" class="form-control" v-model="courseInfo.courseLevel" id="courseLevel" placeholder="Level" />
   
   
-<!-- <input type="text" class="form-control" v-model="tag" @keyup.,="addTag" id="courseSubjects" placeholder="Subject Tags" /> -->
-    <span v-for="tag in courseInfo.courseSubjects" :key="tag.index" class="badge bg-primary text-wrap p-2 m-2 ">
-     {{ tag }}
+    <input type="text" class="form-control" v-model="tag" @keyup.,="addTag" id="courseSubjects" placeholder="Subject Tags" />
+     <span v-for="(tag, index) in courseInfo.courseSubjects" :key="index" class="badge bg-primary text-wrap p-2 m-2">
+     <span class="delete-tag pe-2" @click="deleteTag(tag, index)">X</span>{{ tag }}
     </span>
 
       <div class="form-check form-switch mb-3">
@@ -144,6 +152,11 @@
     <div class="form-check form-switch mb-3">
       <input class="form-check-input" v-model="courseInfo.hasLabs" type="checkbox" id="hasLabs">
       <label class="form-check-label" for="hasLabs">Has Labs</label>
+    </div>
+
+    <div class="form-check form-switch mb-3">
+      <input class="form-check-input" v-model="courseInfo.includesBook" type="checkbox" id="includesBook">
+      <label class="form-check-label" for="includesBook">Includes Book</label>
     </div>
   
     <label for="formFile" class="form-label">Card Image</label>
@@ -160,8 +173,9 @@
   
   <div class="col-sm-8">
 
-  
     <textarea type="text" class="form-control" v-model="courseInfo.courseDescription" id="courseDescription" placeholder="Course Page Description" />
+
+    <input type="text" class="form-control" v-model="courseInfo.recommendedPrerequisites" id="courseLevel" placeholder="Recommended Prereqs" />
   
     <div class="h-50">
     <quill-editor v-model:value="courseInfo.courseObjectives" id="courseObjectives" />
@@ -219,6 +233,8 @@ export default {
             courseObjectives:null,
             hasLectures:null,
             hasLabs:null,
+            includesBook:null,
+            recommendedPrerequisites:null,
 
           },
           activeItem:null,
@@ -251,6 +267,7 @@ export default {
       //reset button
       clearForm() {
         Object.assign(this.$data, this.$options.data.apply(this));
+        this.watcher();
              },
       //delete btn
       deleteCourse(doc) {
@@ -329,6 +346,8 @@ export default {
         },
         //delet subject tags
         deleteTag(tag,index) {
+          console.log(tag);
+          console.log(index);
           this.courseInfo.courseSubjects.splice(index,1);
 
         }
