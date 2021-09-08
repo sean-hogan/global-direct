@@ -4,13 +4,19 @@
         <ul class="nav flex-column">
           <li class="nav-item">
             <router-link class="nav-link" active-class="active" aria-current="page" to="/admin/admin-dashboard">
-              Admin Dashboard
+              Dashboard
             </router-link>
           </li>
 
           <li class="nav-item">
             <router-link class="nav-link" active-class="active" to="/admin/catalog-edit">
-              Catalog
+              Edit Catalog
+            </router-link>
+          </li>
+
+          <li class="nav-item">
+            <router-link class="nav-link" active-class="active" to="/admin/enrollment-edit">
+              Edit Enrollment Dates
             </router-link>
           </li>
 

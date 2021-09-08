@@ -63,11 +63,11 @@
                 </div><!--end card-->
 
                 <p>Classes are offered starting</p>
-                <h5>January 17, 2022</h5>
+                <h5>{{dayjs(enrollmentDate).format('MMMM D, YYYY')}}</h5>
 
                 <a href="/home" class="btn btn-primary my-5">Enroll Now</a>
 
-                <p class="text-muted">Enroll by 6 Fevrier 2021 to reserve your spot
+                <p class="text-muted">Enroll by {{dayjs(enrollmentDate).subtract(7, 'day').format('MMMM D, YYYY')}} to reserve your spot
                 <br /><a href="/get-started">Here is a link</a></p>
 
                 <p v-if="course.includesBook">This course includes the book</p>
@@ -148,6 +148,7 @@
 import AdvisorCallToAction from '@/components/AdvisorCallToAction.vue'
 import Footer from '@/components/Footer.vue'
 import {fb, db} from '../firebase';
+import dayjs from 'dayjs'
 
 export default {
   name: 'CourseTemplate',
@@ -159,21 +160,36 @@ export default {
     return{
       course:{},
       relatedCourses:[],
-
-      }
+      startDates:[],
+      enrollmentDate:null,
+      dayjs,
+    }
   },
    created(){
+     //get this course data
       db.collection("courses").where("courseNumber", "==", this.$route.params.id)
       .get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
         this.course = doc.data();
         });
       });
+      //get enrollment dates
+      db.collection("startDates").get().then((querySnapshot) => {
+              querySnapshot.forEach((doc) => {
+              // doc.data() is never undefined for query doc snapshots
+              doc = new Date(doc.data().date.seconds*1000);
+              this.startDates.push(doc);
+                this.startDates.sort((a,b)=>a.getTime()-b.getTime());
+
+          });
+      });
+      
+
      
     },
      updated(){
       this.$nextTick(function () {
+        //related course function
         if (this.relatedCourses == "") {
           db.collection("courses").where("courseSubjects", "array-contains-any", this.course.courseSubjects)
           .get().then((querySnapshot) => {
@@ -184,7 +200,16 @@ export default {
               }
             });
           });
-        }})
+        }
+        
+        //iterate through sorted start dates and store the closest one after now
+      this.startDates.forEach((date) => {
+        if(dayjs(date).isAfter(dayjs()) && !this.enrollmentDate) {
+          this.enrollmentDate = date;
+        }
+      });
+
+      })
       
      
     },

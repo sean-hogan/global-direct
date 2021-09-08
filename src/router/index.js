@@ -51,6 +51,12 @@ const routes = [{
                 component: () =>
                     import ('../components/CatalogEdit.vue')
             },
+            {
+                path: 'enrollment-edit',
+                name: 'EnrollmentEdit',
+                component: () =>
+                    import ('../components/EnrollmentEdit.vue')
+            },
         ]
     }
 

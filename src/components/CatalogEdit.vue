@@ -74,10 +74,10 @@
 
 <!--------------------->
 
-<h2 class="my-5">Catalog View::</h2>
+
+<h2 class="my-5">Edit/Delete A Course:</h2>
 <!--------------------->
  <div class="row text-center justify-content-center mb-5">
-        <h2 class="display-3 mb-5">Find Your Future</h2>
         <div class="col-4">
         <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -87,10 +87,11 @@
     </div><!--end row-->
 
 <!--------------------->
-    <div class="row card-wrapper row-cols-1 row-cols-3 g-4">
+    <div class="row card-wrapper row-cols-1 row-cols-5 g-4">
+    
  <!--card-->
   <div v-for="course in courses" class="col" :key="course.courseNumber">
-    <div class="card">
+    <div class="card h-100">
       <img :src="course.data().cardImageUrl" class="card-img-top" alt="">
       <div class="card-body">
         <h5 class="card-title">{{course.data().courseTitle}}</h5>
@@ -98,9 +99,11 @@
         <p class="card-text">{{course.data().cardText}}</p>
         <router-link class="btn btn-outline-secondary mt-auto me-auto" :to="{ name: 'CourseTemplate', params: { id: course.data().courseNumber }}">More Info</router-link>
       </div>
-    </div><!--end card-->
+      <div class="card-footer">
   <button @click="showModal(course)" class="btn btn-primary mt-3 me-3">Edit</button>
   <button @click="deleteCourse(course.id)" class="btn btn-danger mt-3">Delete</button>
+  </div><!--end card footer-->
+    </div><!--end card-->
   </div><!--end col-->
   
 
@@ -208,6 +211,7 @@ import { quillEditor, Quill } from 'vue3-quill'
 
 
 
+
 export default {
     name: 'CatalogEdit',
     components: {
@@ -278,8 +282,6 @@ export default {
           }).catch((error) => {
               console.error("Error removing document: ", error);
           });
-        }else{
-      //my linter doesn't like this empty function
         }
       },
       //edit modal functions
@@ -346,21 +348,19 @@ export default {
         },
         //delet subject tags
         deleteTag(tag,index) {
-          console.log(tag);
-          console.log(index);
           this.courseInfo.courseSubjects.splice(index,1);
 
-        }
-
-
+        },
+       
   },
   created(){
       db.collection("courses").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
         this.courses.push(doc);
-    });
-});
+          });
+      });
+
   }
 }
 </script>

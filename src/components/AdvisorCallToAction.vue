@@ -27,7 +27,6 @@
                              <input type="text" class="form-control" id="lastName" aria-describedby="lastName" placeholder="Last Name">
                              <input type="email" class="form-control" id="rfiEmail" aria-describedby="rfiEmail" placeholder="Email">
                              <input type="phone" class="form-control" id="phoneNumber" aria-describedby="phoneNumber" placeholder="Phone">
-                             <input type="text" class="form-control" id="firstName" aria-describedby="firstName" placeholder="Programs placheolder">
 
 
                             <button id="rfi_submit" class="btn btn-primary rfi-submit my-3" type="submit" >Learn More</button>
