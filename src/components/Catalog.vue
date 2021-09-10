@@ -56,7 +56,7 @@
                
           <div class="card-body">
 
-            <div class="row card-wrapper row-cols-1 row-cols-md-4 g-4"><!--course card row-->
+            <div class="row card-wrapper row-cols-1 row-cols-md-5 g-4"><!--course card row-->
               
               <!--course card-->
                 <div v-for="course in filteredCourseList" class="col" :key="course.courseNumber">

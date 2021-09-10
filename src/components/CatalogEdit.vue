@@ -56,7 +56,9 @@
   <div class="col-sm-8">
     <textarea type="text" class="form-control" v-model="courseInfo.courseDescription" id="courseDescription" placeholder="Course Page Description" />
 
-    <input type="text" class="form-control" v-model="courseInfo.recommendedPrerequisites" id="courseLevel" placeholder="Recommended Prereqs" />
+    <input type="text" class="form-control" v-model="courseInfo.recommendedPrerequisites" id="recomendedPrereqs" placeholder="Recommended Prereqs" />
+    <input type="text" class="form-control" v-model="courseInfo.optionalNotes" id="optionalNotes" placeholder="Optional Notes" />
+
 
 <div class="h-50">
 
@@ -178,7 +180,8 @@
 
     <textarea type="text" class="form-control" v-model="courseInfo.courseDescription" id="courseDescription" placeholder="Course Page Description" />
 
-    <input type="text" class="form-control" v-model="courseInfo.recommendedPrerequisites" id="courseLevel" placeholder="Recommended Prereqs" />
+    <input type="text" class="form-control" v-model="courseInfo.recommendedPrerequisites" id="recomendedPrereqs" placeholder="Recommended Prereqs" />
+    <input type="text" class="form-control" v-model="courseInfo.optionalNotes" id="optionalNotes" placeholder="Optional Notes" />
   
     <div class="h-50">
     <quill-editor v-model:value="courseInfo.courseObjectives" id="courseObjectives" />
@@ -239,6 +242,7 @@ export default {
             hasLabs:null,
             includesBook:null,
             recommendedPrerequisites:null,
+            optionalNotes:null,
 
           },
           activeItem:null,

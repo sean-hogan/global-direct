@@ -1,47 +1,57 @@
 <template>
 
-  <div class="course container px-5 py-5">
+  <div class="course section px-5 py-5">
+    <div class="container">
 
     <div class="row g-5">
 
-        <div class="col-sm-8">
-            <article>
+        <div class="col-sm-8 ps-sm-5">
                 <header class="mb-3">
-                    <h3 class="display-4">{{course.courseTitle}}</h3>
-                    <ul class="list-unstyled list-inline">
-                        <li class="list-inline-item">Course ID: <strong>{{course.courseNumber}}</strong></li>
+                    <p class="h5 mb-0">{{course.courseNumber}}</p>
+                    <h2 class="display-4">{{course.courseTitle}}</h2>
+                    <p><strong>Course Level: </strong>{{course.courseLevel}}</p>
+                    <!-- <ul class="list-unstyled list-inline">
                         <li class="list-inline-item">Subjects: <span v-for="tag in course.courseSubjects" :key="tag.index" class="badge bg-primary text-wrap p-2 m-2 ">
                           {{ tag }}
                           </span></li>
 
-                    </ul>
-                    <div v-if="course.recommendedPrerequisites">Recommended Prerequisites: {{course.recommendedPrerequisites}}</div>
+                    </ul> -->
 
                 </header>
+                
 
-                <p class="lead">{{course.cardText}}</p>
-                <p>{{course.courseDescription}}</p>
-            </article>
+                <!-- <p class="lead">{{course.cardText}}</p> -->
+                <p class="course-description">{{course.courseDescription}}</p>
+                <p v-if="course.optionalNotes">{{course.optionalNotes}}</p>
 
-            <h2 class="my-3">Key Takeaways</h2>
-            <div v-html="course.courseObjectives"></div>
+
+            <div v-if="course.recommendedPrerequisites">
+              <h3 class="mt-5">Recommended Prerequisites</h3>
+              <p>{{course.recommendedPrerequisites}}</p>
+            </div>
+
+
+            <h3 class="mt-5">Key Takeaways</h3>
+            <p v-html="course.courseObjectives"></p>
+            
             
 
-            <h2>What You'll Get</h2>
-             <ul class="list-unstyled list-inline pb-5">
-                        <li v-if="course.hasLectures" class="list-inline-item me-3"><i class="bi bi-heart-fill me-1" />Lecture Materials</li>
-                        <li v-if="course.hasLabs" class="list-inline-item"><i class="bi bi-arrow-down-right-circle me-1" />Labs</li>
+            <h3 class="mt-5">What You'll Get</h3>
+             <ul class="list-unstyled list-inline pb-5 course-features">
+
+                        <li v-if="course.hasLectures"><i class="bi bi-person-circle" />Lecture Materials</li>
+                        <li v-if="course.hasLabs"><i class="bi bi-clipboard-data" />Labs</li>
 
                     </ul>
 
-                    <hr />
+                    <!-- <hr />
                     <h5 class="my-3">Call to Social</h5>
                     <ul class="list-unstyled list-inline pb-5">
                         <li class="list-inline-item"><i class="bi bi-facebook me-1 h4" /></li>
                         <li class="list-inline-item"><i class="bi bi-instagram me-1 h4" /></li>
                         <li class="list-inline-item"><i class="bi bi-linkedin me-1 h4" /></li>
 
-                    </ul>
+                    </ul> -->
 
                     
 
@@ -49,36 +59,46 @@
         </div><!--end col-->
 
          <div class="col-sm-4">
-             <div class="card mb-4" style="width: 18rem;">
+             <div class="card mb-4">
                 <img :src="course.cardImageUrl" class="card-img-top" alt="">
                 <div class="card-body">
-                    <ul class="list-unstyled">
-                        <li><i class="bi bi-arrow-right me-1 h4" />Level <span class="ms-5">{{course.courseLevel}}</span></li>
-                        <li><i class="bi bi-arrow-right me-1 h4" />Credits <span class="ms-5">{{course.creditHours}}</span></li>
-                        <li><i class="bi bi-arrow-right me-1 h4" />Tuition <span class="ms-5">{{course.coursePrice}}</span></li>
-                        
+                    <ul class="list-unstyled course-details">
+                        <li><i class="bi bi-clock" />Course Length <span class="float-end">8 Weeks</span></li>
+                        <hr />
+                        <li><i class="bi bi-bank" />Credits <span class="float-end">{{course.creditHours}}</span></li>
+                        <hr />
+                        <li><i class="bi bi-credit-card" />Tuition <span class="float-end">${{course.coursePrice}}</span></li>
+                        <hr />
+                        <li><i class="bi bi-calendar-check" />Starts <span class="float-end text-primary">{{dayjs(enrollmentDate).format('MMMM D, YYYY')}}</span></li>
+                        <hr />
+
+                      
                     </ul>
+                    <div class="text-center">
+
+                    <a href="/home" class="btn btn-primary my-3 px-5 py-2">Enroll Now</a>
+                    </div>
+
 
                 </div>
                 </div><!--end card-->
 
-                <p>Classes are offered starting</p>
-                <h5>{{dayjs(enrollmentDate).format('MMMM D, YYYY')}}</h5>
+                
 
-                <a href="/home" class="btn btn-primary my-5">Enroll Now</a>
-
-                <p class="text-muted">Enroll by {{dayjs(enrollmentDate).subtract(7, 'day').format('MMMM D, YYYY')}} to reserve your spot
-                <br /><a href="/get-started">Here is a link</a></p>
+                <p class="text-muted">Enroll by {{dayjs(enrollmentDate).subtract(3, 'day').format('MMMM D, YYYY')}} to reserve your spot
+                <br /><a href="/get-started">View The Term Schedule</a></p>
 
                 <p v-if="course.includesBook">This course includes the book</p>
                 <p v-else>This course does not include the book</p>
+                
              </div><!--end col-->
 
 
     </div><!--End row-->
 
 
-  </div><!--End Container-->
+    </div><!--end contain-->
+  </div><!--End section-->
 
 <div class="section bg-grey py-5">
   <div class="how-this-works container">
@@ -100,7 +120,7 @@
 </div><!--end bg sections-->
 
 <!--------------related courses------>
-<div class="related-courses section bg-white">
+<div class="related-courses section">
     <div class="container px-4 py-5">
         <div class="row text-center">
 
@@ -220,6 +240,52 @@ export default {
 }
 </script>
 
+
+<style scoped lang="scss">
+@media (min-width: 600px) {
+  .course.section {
+    background-image: url("../assets/red_circles3.jpg");
+    background-repeat: repeat-y;
+  }
+  .related-courses.section {
+    background-image: url("../assets/red_circles3.jpg");
+    background-repeat: repeat-y;
+
+  }
+}
+
+.course.section p {
+  font-size:1.1rem;
+}
+.course.section h3:after {
+    content: "";
+    display: block;
+    margin-top:20px;
+    margin-bottom: 20px;
+    position: relative;
+    width: 60px;
+    height: 3px;
+    background-color: #ddd;
+}
+
+.course-details, .course-features {
+  font-size:1.3rem;
+}
+.course-details li {
+  line-height:2rem;
+  padding:0px 1rem;;
+}
+.course-details li .float-end {
+  font-weight:800;
+}
+.course-details .bi, .course-features .bi {
+  margin-right:1rem;
+}
+.course-features li {
+  margin-top:1rem;
+}
+
+</style>
 
     
 
