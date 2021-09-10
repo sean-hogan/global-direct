@@ -28,6 +28,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
 .home-hero.section {
     background-image: url(https://images.prismic.io/csug/a25f1139-829d-41fa-ab8c-96e3086568d7_header_gr_informationTechnology.jpg?auto=compress,format);
     background-repeat: no-repeat;

@@ -24,6 +24,12 @@ const routes = [{
             import ('../views/GetStarted.vue')
     },
     {
+        path: '/get-started/apply',
+        name: 'EForm',
+        component: () =>
+            import ('../views/EForm.vue')
+    },
+    {
         path: '/courses/:id',
         name: 'CourseTemplate',
         component: () =>

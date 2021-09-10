@@ -21,7 +21,7 @@
             <i class="bi-heart-fill text-primary text-bottom h2" />
             </div>
             <div>
-            <p>Praesent eu felis quam. <a href="/">Nunc eu nisi</a> in erat blandit aliquet.</p>
+            <p>Praesent eu felis quam. <a href="get-started/apply">Application Link</a> in erat blandit aliquet.</p>
             
             </div>
         </div>
