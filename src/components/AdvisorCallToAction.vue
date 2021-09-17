@@ -5,7 +5,7 @@
             <div class="col-sm-4 text-center" style="padding:20px;">
                 <h2>Get Started Now!</h2>
                 <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text :</p>
-                    <a href="/get-started" class="btn btn-outline-primary">Register</a>
+                    <router-link to="/get-started" class="btn btn-outline-primary">Register</router-link>
                 <!-- <p>(Normal business hours: 7am-5pm M-F MST)</p> -->
             </div>
             <div class="col-sm-4 text-center" style="background-color:#f3f3f3; padding:20px;">

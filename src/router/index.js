@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import { fb } from '../firebase'
+import { publicPath } from '../../vue.config.js'
 
 
 const routes = [{
@@ -24,16 +25,10 @@ const routes = [{
             import ('../views/GetStarted.vue')
     },
     {
-        path: '/get-started/apply',
-        name: 'EForm',
-        component: () =>
-            import ('../views/EForm.vue')
-    },
-    {
         path: '/courses/:id',
         name: 'CourseTemplate',
         component: () =>
-            import ('../views/CourseTemplate.vue')
+            import ('../views/CourseTemplate.vue'),
     },
     {
         path: '/admin',
@@ -73,6 +68,7 @@ const routes = [{
 
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),
+    base: publicPath,
     routes,
     scrollBehavior(to, from, savedPosition) {
         if (savedPosition) {

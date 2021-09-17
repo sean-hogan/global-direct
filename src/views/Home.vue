@@ -1,15 +1,13 @@
 <template>
-  <div class="home">
   <HomeHero />
   <Features />
   <Catalog />
-  <FAQ />
+  <FAQ />  
   <Testimonials />
   <SchoolFeature />
   <PictureCardFeatures />
   <AdvisorCallToAction />
   <Footer />
-  </div>
 </template>
 
 <script>
@@ -36,6 +34,7 @@ export default {
     PictureCardFeatures,
     AdvisorCallToAction,
     Footer
-  }
+  },
+
 }
 </script>

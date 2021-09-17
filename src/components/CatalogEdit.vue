@@ -56,7 +56,14 @@
   <div class="col-sm-8">
     <textarea type="text" class="form-control" v-model="courseInfo.courseDescription" id="courseDescription" placeholder="Course Page Description" />
 
-    <input type="text" class="form-control" v-model="courseInfo.recommendedPrerequisites" id="recomendedPrereqs" placeholder="Recommended Prereqs" />
+    
+    <input type="text" class="form-control" v-model="prereq" @keyup.,="addPrereq" id="recommendedPrereqs" placeholder="Recommended Prereqs" />
+
+    <span v-for="prereq in courseInfo.recommendedPrerequisites" :key="prereq.index" class="badge bg-primary text-wrap p-2 m-2">
+     <span class="delete-tag pe-2" @click="deletePrereq(prereq,prereq.index)">X</span>{{ prereq }}
+    </span>
+
+
     <input type="text" class="form-control" v-model="courseInfo.optionalNotes" id="optionalNotes" placeholder="Optional Notes" />
 
 
@@ -179,8 +186,13 @@
   <div class="col-sm-8">
 
     <textarea type="text" class="form-control" v-model="courseInfo.courseDescription" id="courseDescription" placeholder="Course Page Description" />
+        
+    <input type="text" class="form-control" v-model="prereq" @keyup.,="addPrereq" id="recommendedPrereqs" placeholder="Recommended Prereqs" />
 
-    <input type="text" class="form-control" v-model="courseInfo.recommendedPrerequisites" id="recomendedPrereqs" placeholder="Recommended Prereqs" />
+    <span v-for="(prereq, index) in courseInfo.recommendedPrerequisites" :key="index" class="badge bg-primary text-wrap p-2 m-2">
+     <span class="delete-tag pe-2" @click="deletePrereq(prereq, index)">X</span>{{ prereq }}
+    </span>
+
     <input type="text" class="form-control" v-model="courseInfo.optionalNotes" id="optionalNotes" placeholder="Optional Notes" />
   
     <div class="h-50">
@@ -236,17 +248,18 @@ export default {
             creditHours:null,
             courseLevel:null,
             courseSubjects:[],
+            recommendedPrerequisites:[],
             courseDescription:null,
             courseObjectives:null,
             hasLectures:null,
             hasLabs:null,
             includesBook:null,
-            recommendedPrerequisites:null,
             optionalNotes:null,
 
           },
           activeItem:null,
           tag:null,
+          prereq:null,
 
       }
   },
@@ -308,11 +321,26 @@ export default {
                 console.error("Error updating document: ", error);
             });
         },
-        //subject tags
+        //add subject tags
         addTag() {
           this.courseInfo.courseSubjects.push(this.tag.slice(0, -1));
           this.tag = "";
 
+        },
+        //delet subject tags
+        deleteTag(tag,index) {
+          this.courseInfo.courseSubjects.splice(index,1);
+
+        },
+        //add prereq
+        addPrereq() {
+          this.courseInfo.recommendedPrerequisites.push(this.prereq.slice(0, -1));
+          this.prereq = "";
+
+        },
+        //delet prereq from array
+        deletePrereq(prereq,index) {
+          this.courseInfo.recommendedPrerequisites.splice(index,1);
         },
         //upload image and store url with course object
         uploadImage(e) {
@@ -350,11 +378,7 @@ export default {
             console.log('Uh-oh, an error occurred!');
           });
         },
-        //delet subject tags
-        deleteTag(tag,index) {
-          this.courseInfo.courseSubjects.splice(index,1);
-
-        },
+        
        
   },
   created(){

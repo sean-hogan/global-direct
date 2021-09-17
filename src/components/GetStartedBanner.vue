@@ -1,15 +1,15 @@
 <template>
-<div class="container">
-<div class="get-started-banner section">
-    
-    <!--banner-->
-    <div class="banner text-center">
-<h1 class="display-3 my-4">Here is a Headline about Enrolling</h1>
-<p class="lead">And then maybe a little bit of flavor text to make this page a little spicy</p>
-    </div><!--end banner-->
-
-    </div><!--end section-->
-    </div><!--end container-->
+  <div class="get-started-hero section">
+    <div class="container">
+    <div class="row">
+        <div class="header-text col-sm-6 my-5 p-5">        
+            <h1>Get Started</h1>
+            <p class="lead">Lorem Ipsum here is a little bit of text</p>
+        </div>
+        
+    </div><!--end row-->
+  </div><!--end container -->
+  </div><!--end section-->
 </template>
 
 <script>
@@ -24,5 +24,23 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
+
+
+.get-started-hero.section {
+    background-image: url(https://images.prismic.io/csug/4de4a93c-494f-42f2-97d9-82ccebf69946_header_studentLife_onlineRight.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.header-text {
+    color: #1c2333;
+    text-transform: uppercase;
+    background-color: hsla(0,0%,100%,.7);
+}
+
+.header-text h1 {
+    font-size: 4rem;
+}
 
 </style>

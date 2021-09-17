@@ -1,19 +1,12 @@
 <template>
 
 <div id="get-started">
-
 <GetStartedBanner />
 <GetStartedBrief />
-<GetStartedFeature />
-<GetStartedSteps />
-</div><!--End Container-->
+<RegistrationForm />
+
 <AdvisorCallToAction />
-
-
-
-
-
-  
+</div><!--End --> 
 
   <Footer />
 </template>
@@ -24,8 +17,7 @@
 
 import GetStartedBanner from '@/components/GetStartedBanner.vue'
 import GetStartedBrief from '@/components/GetStartedBrief.vue'
-import GetStartedFeature from '@/components/GetStartedFeature.vue'
-import GetStartedSteps from '@/components/GetStartedSteps.vue'
+import RegistrationForm from '@/components/RegistrationForm.vue'
 import AdvisorCallToAction from '@/components/AdvisorCallToAction.vue'
 import Footer from '@/components/Footer.vue'
 
@@ -34,12 +26,9 @@ export default {
   components: {
     GetStartedBanner,
     GetStartedBrief,
-    GetStartedFeature,
-    GetStartedSteps,
+    RegistrationForm,
     AdvisorCallToAction,
     Footer,
       }
 }
 </script>
-
-

@@ -111,11 +111,10 @@ export default {
           selectedSubject: '',
           selectedLevel: '',
           selectedStart: '',
-
       }
   },
 
-   created(){
+   created() {
       db.collection("courses").get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
         // doc.data() is never undefined for query doc snapshots
