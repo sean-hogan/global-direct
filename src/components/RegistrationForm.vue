@@ -1,7 +1,7 @@
 <template>
     <div class="registration-form section" id="register">
-          <div class="container">
-                    <div class="row mt-sm-5 justify-content-center">
+          <div class="container py-5">
+                    <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <h2>Register</h2>
                 <form @submit.prevent="submitForm">

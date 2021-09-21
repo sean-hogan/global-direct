@@ -1,19 +1,19 @@
 <template>
 <div class="advisor-call-to-action section bg-light">
     <div class="container px-4 py-5 text-center">
-       <div class="row">
-            <div class="col-sm-4 text-center" style="padding:20px;">
+       <div class="row justify-content-center">
+            <div class="col-sm-4 text-center border-end" style="padding:20px;">
                 <h2>Get Started Now!</h2>
                 <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text :</p>
                     <router-link to="/get-started" class="btn btn-outline-primary">Register</router-link>
                 <!-- <p>(Normal business hours: 7am-5pm M-F MST)</p> -->
             </div>
-            <div class="col-sm-4 text-center" style="background-color:#f3f3f3; padding:20px;">
+            
+            <!-- <div class="col-sm-4 text-center" style="background-color:#f3f3f3; padding:20px;">
                 <div id="rfifull" class="bl5 br5">
                     <h2>Ready to learn more?</h2>
                     <p><strong>Simply fill out the form below and one of our Enrollment Counselors will be in touch!</strong></p>
 
-                    <!--rfi form-->
                     <div id="wrapper_rfiformfull" class="tblr5">
                         <form id="rfiformfull" class="rfiquickform form" action="" method="POST" novalidate="novalidate">
                             <p id="rfiformfull-message" class="clr msg">* Required Fields</p>
@@ -32,11 +32,10 @@
                             <button id="rfi_submit" class="btn btn-primary rfi-submit my-3" type="submit" >Learn More</button>
                         </form>
                         <div class="clr"></div>
-                    </div><!--end form wrapper-->
-
+                    </div>
                     <p class="disclaimer">By submitting this form, I agree that representatives of CSU Global may contact me about educational services via email, phone, or text message including automated technology. Message and data rates may apply.</p>
                 </div>
-            </div>
+            </div> -->
 
             <div class="col-sm-4 text-center" style="padding:20px;">
                 <h2>Prefer to chat online?</h2>
