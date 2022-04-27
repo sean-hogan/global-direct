@@ -1,8 +1,7 @@
 module.exports = {
     /* ... */
-    publicPath: process.env.NODE_ENV === 'production' ? '/globaldirect' : '/',
+    publicPath: process.env.NODE_ENV === 'production' ? '/direct' : '/',
     devServer: {
-
         host: 'localhost'
-    }
+    },
 };

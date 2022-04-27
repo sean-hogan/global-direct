@@ -1,38 +1,40 @@
 <template>
-<div class="features section bg-grey">
+<section class="features section bg-grey" aria-labelledby="card-features-label">
     <div class="container px-5 py-5">
     <div class="row g-5 p-5">
-        <div class="feature col-sm-4">
+        <span class="visually-hidden" id="card-features-label">More Information on Global Direct</span>
+
+        <div class="feature col-lg-4" data-aos="fade" data-aos-duration="1000" data-aos-once="true">
             <div class="card pt-3 px-2 h-100">
                 <div class="card-body">
-                    <img class="img-fluid mb-3" src="https://images.prismic.io/csug/0e57930e-69ed-4ebe-9ce3-0c4af66de93e_wb3_home_computer.jpg?auto=compress,format&rect=0,0,314,200&w=314&h=200" />
-                    <h3>HOW DOES ONLINE LEARNING WORK?</h3>
-                    <p>In the CSU Global online classroom, students access course materials, interactive lectures, videos, and learning exercises through their Student Portal. They connect with peers and instructors through message boards and email, and access student success resources such as online tutoring, library, technical support, career center, and disability services.</p>
-                    <a href="">Learn More</a>
+                    <img class="img-fluid mb-3" src="https://images.prismic.io/csug/0e57930e-69ed-4ebe-9ce3-0c4af66de93e_wb3_home_computer.jpg?auto=compress,format&rect=0,0,314,200&w=314&h=200" alt="" />
+                    <h3>WHAT ARE CLASSES WITH GLOBAL DIRECT LIKE?</h3>
+                    <p>CSU Global Direct offers science, math, business, and other classes on an individual basis, taught in a 100% online, asynchronous environment. You’ll have on-demand access to course materials, interactive lectures, videos, and learning exercises through the CSU Global Direct Student Portal, as well as the ability to connect with your peers and instructors through message boards and email.</p>
+                    <!-- <a href="">Learn More</a> -->
                 </div>
             </div><!--end card-->
         </div><!--end col-->
 
-        <div class="feature col-sm-4">
+        <div class="feature col-lg-4" data-aos="fade" data-aos-duration="1000" data-aos-once="true" data-aos-delay="100">
             <div class="card pt-3 px-2 h-100">
                 <div class="card-body">
-                    <img class="img-fluid mb-3" src="https://images.prismic.io/csug/fa5b306a-2829-4923-9e2e-2fc7233b8be7_wb3_home_laptop.jpg?auto=compress,format&rect=0,0,314,200&w=314&h=200" />
-                    <h3>EXPERIENCE IT FOR YOURSELF</h3>
-                    <p>We invite you to check out our course demo at the link below where you will be able to see the interactive environment for yourself. We have also posted some sample coursework to see the types of assignments you will be doing. Check out our <a href="https://csuglobal.edu/resources/online-education/sample-schedule">sample schedule</a> to see the typical week of a CSU Global. </p>
-                    <a href="">Learn More</a>
+                    <img class="img-fluid mb-3" src="https://images.prismic.io/csug/fa5b306a-2829-4923-9e2e-2fc7233b8be7_wb3_home_laptop.jpg?auto=compress,format&rect=0,0,314,200&w=314&h=200" alt="" />
+                    <h3>HOW DO I REGISTER?</h3>
+                    <p>Registration to CSU Global Direct is simple and quick! Because there are no admissions requirements or fees, you can complete the process in as little as 15 minutes. To register, follow these easy steps: visit the self-serve enrollment portal, select your courses, and submit your payment. <router-link to="/get-started#register">Click here to register for courses</router-link>.</p>
+                    <!-- <a href="">Learn More</a> -->
 
                 </div>
             </div><!--end card-->
         </div><!--end col-->
 
-        <div class="feature col-sm-4">
+        <div class="feature col-lg-4" data-aos="fade" data-aos-duration="1000" data-aos-once="true" data-aos-delay="200">
             <div class="card pt-3 px-2 h-100">
                 <div class="card-body">
-                    <img class="img-fluid mb-3" src="https://images.prismic.io/csug/4b7b17a2-6436-4737-88ea-1ee0028590f1_wb3_home_mom.jpg?auto=compress,format&rect=0,0,314,200&w=314&h=200" />
+                    <img class="img-fluid mb-3" src="https://images.prismic.io/csug/f3921ccb-e298-4bc6-ab2e-1eb649dd068e_picture-feature-thumb.jpg?auto=compress,format" alt="" />
 
-                    <h3>WHAT IT TAKE TO BE A SUCCESSFUL ONLINE STUDENT</h3>
-                    <p>Deciding to pursue an online degree may mean changing the way you think about your education. In order to succeed in the online environment, students need to utilize technology and support services, connect with your instructor and peers, set aside time to accomplish your goals, and have reasonable expectations.</p>
-                    <a href="">Learn More</a>
+                    <h3>WILL MY CREDITS TRANSFER?</h3>
+                    <p>All CSU Global Direct courses are accredited by the Higher Learning Commission and should be accepted by major learning institutions nationwide. We encourage prospective students to confirm with their institution that the courses they intend to take will transfer. All course credits are transferable to CSU Global undergraduate degree programs.</p>
+                    <!-- <a href="">Learn More</a> -->
 
                 </div>
             </div><!--end card-->
@@ -40,7 +42,7 @@
 
     </div><!--end row-->
     </div><!--end container-->
-    </div><!--end section-->
+</section><!--end section-->
 </template>
 
 <script>
@@ -82,12 +84,12 @@ export default {
     background-color: #18c9b9;
 }
 
-.feature .card li a {
+.feature .card a {
     text-decoration: none;
     color:#9e1831;
 }
 
-.feature .card li a:hover {
+.feature .card a:hover {
     color:#333;
 }
 

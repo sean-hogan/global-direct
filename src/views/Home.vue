@@ -1,40 +1,62 @@
 <template>
   <HomeHero />
-  <Features />
+  <SubHero />
+  <main id="main-content">
   <Catalog />
-  <FAQ />  
+  <HomeFAQ />  
+  </main>
+  <aside>
+  <Features />
   <Testimonials />
   <SchoolFeature />
   <PictureCardFeatures />
   <AdvisorCallToAction />
-  <Footer />
+  </aside>
 </template>
 
 <script>
 // @ is an alias to /src
 import HomeHero from '@/components/HomeHero.vue'
+import SubHero from '@/components/SubHero.vue'
 import Features from '@/components/Features.vue'
 import Catalog from '@/components/Catalog.vue'
-import FAQ from '@/components/FAQ.vue'
+import HomeFAQ from '@/components/HomeFAQ.vue'
 import Testimonials from '@/components/Testimonials.vue'
 import SchoolFeature from '@/components/SchoolFeature.vue'
 import PictureCardFeatures from '@/components/PictureCardFeatures.vue'
 import AdvisorCallToAction from '@/components/AdvisorCallToAction.vue'
-import Footer from '@/components/Footer.vue'
+
+//animate on scroll
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 export default {
   name: 'Home',
   components: {
     HomeHero,
+    SubHero,
     Features,
     Catalog,
-    FAQ,
+    HomeFAQ,
     Testimonials,
     SchoolFeature,
     PictureCardFeatures,
     AdvisorCallToAction,
-    Footer
   },
+   mounted() {
+     document.title = 'Best Online Prerequisite Courses for Pre Health Students | CSU Global Direct';
+     
+     //dynamic meta desc
+     const descEl = document.querySelector('head meta[name="description"]');
+     descEl.setAttribute('content', 'CSU Global Direct is the most convenient and affordable way to complete prerequisite classes online. Get ready for medical, dental, nursing, or PA school with us!');
+
+    //animate on scroll
+    AOS.init()
+   },
 
 }
+    //aos haq
+    window.addEventListener("scroll", AOS.refresh);
+
+
 </script>

@@ -1,23 +1,28 @@
 <template>
-<CourseInfo :key="key" />
+<CourseInfo :key="this.key" />
+<aside>
+<CoursePageFAQ />
 <AdvisorCallToAction />
-<Footer />
+</aside>
 </template>
 
 
 <script>
 // @ is an alias to /src
 import CourseInfo from '@/components/CourseInfo.vue'
+import CoursePageFAQ from '@/components/CoursePageFAQ.vue'
 import AdvisorCallToAction from '@/components/AdvisorCallToAction.vue'
-import Footer from '@/components/Footer.vue'
 
+//animate on scroll
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
 export default {
   name: 'CourseTemplate',
   components: {
     CourseInfo,
+    CoursePageFAQ,
     AdvisorCallToAction,
-    Footer
       },
     data(){
       return{
@@ -28,10 +33,9 @@ export default {
       this.$nextTick(function () {
         this.key = this.$route.fullPath;
       })
-      
-     
     },
-
 }
+    //aos haq
+    window.addEventListener("scroll", AOS.refresh);
  
 </script>

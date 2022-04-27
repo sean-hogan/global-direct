@@ -1,21 +1,25 @@
 <template>
-    <div class="registration-form section" id="register">
+    <div class="registration-form section" id="register" data-aos="fade" data-aos-duration="500" data-aos-once="true" data-aos-offset="50">
           <div class="container py-5">
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
-                            <h2>Register</h2>
-                <form @submit.prevent="submitForm">
+                        <h2 id="registration-form-header">Register</h2>
+                        <p class="lead">All fields are required to register for the enrollment portal</p>
+                <form @submit.prevent="submitForm" aria-labelledby="registration-form-header">
                     <div class="row">
 
 
                         <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="First name" aria-label="First name" v-model="form.firstName">
+                        <label for="firstName" class="form-label">First name</label>
+                        <input type="text" class="form-control" placeholder="e.g. Terry" aria-label="First name"  id="firstName" v-model="form.firstName" required aria-required="true">
                         </div>
                         <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" v-model="form.lastName">
+                        <label for="lastName" class="form-label">Last name</label>
+                        <input type="text" class="form-control" placeholder="e.g. Pratchett" aria-label="Last name" id="lastName" v-model="form.lastName" required aria-required="true">
                         </div>
                         <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="Date of Birth" aria-label="Date of Birth" v-model="form.dob">
+                        <label for="dateOfBirth" class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" id="dateOfBirth" aria-label="Date of Birth" v-model="form.dob" required aria-required="true">
                         </div>
 
                     </div><!--end form row-->
@@ -23,19 +27,27 @@
                     <div class="row">
                         
                         <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="Email" aria-label="Email" v-model="form.email">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" placeholder="e.g. terry@example.com" aria-label="Email" id="email" v-model="form.email" required aria-required="true">
                         </div>
-                        <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="Telephone" aria-label="Telephone" v-model="form.telephone">
-                        </div>
-                        <div class="col-sm-4">
 
+                        <div class="col-sm-4">
+                        <label for="confirmEmail" class="form-label">Confirm Email</label>
+                        <input @blur="validateEmail" type="confirmEmail" class="form-control" placeholder="e.g. terry@example.com" aria-label="Email" id="confirmEmail" v-model="confirmEmail" required aria-required="true" aria-describedby="email-confirm-error-desc">
+                        <small class="text-danger" v-if="emailError" id="email-confirm-error-desc"><span class="visually-hidden">Error: </span>Email does not match</small>
                         </div>
+
+                        <div class="col-sm-4">
+                        <label for="telephone" class="form-label">Telephone</label>
+                        <input type="tel" class="form-control" placeholder="###-###-####" aria-label="Telephone" id="telephone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" v-model="form.phone" required aria-required="true" v-maska="'###-###-####'">
+                        </div>
+                        
                     </div><!--end form row-->
                    
                     <div class="row">
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" placeholder="Address" aria-label="Address" v-model="form.address">
+                            <label for="address" class="form-label">Address</label>
+                        <input type="text" class="form-control" placeholder="e.g. 123 Martin Luther King Blvd." aria-label="Address" id="address" v-model="form.address" required aria-required="true">
                         </div>
                     </div><!--end form row-->
                         
@@ -44,103 +56,54 @@
                     <div class="row">
 
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="City" aria-label="City" v-model="form.city">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" class="form-control" placeholder="Your City" aria-label="City" id="city" v-model="form.city" required aria-required="true">
                         </div>
                         <div class="col-sm-4">
-                        <select class="form-select" aria-label="State" v-model="form.state">
-                            <option value="State" disabled>State</option>
-                            <option value="AK">Alaska</option>
-                            <option value="AL">Alabama</option>
-                            <option value="AR">Arkansas</option>
-                            <option value="AZ">Arizona</option>
-                            <option value="CA">California</option>
-                            <option value="CO">Colorado</option>
-                            <option value="CT">Connecticut</option>
-                            <option value="DC">District of Columbia</option>
-                            <option value="DE">Delaware</option>
-                            <option value="FL">Florida</option>
-                            <option value="GA">Georgia</option>
-                            <option value="HI">Hawaii</option>
-                            <option value="IA">Iowa</option>
-                            <option value="ID">Idaho</option>
-                            <option value="IL">Illinois</option>
-                            <option value="IN">Indiana</option>
-                            <option value="KS">Kansas</option>
-                            <option value="KY">Kentucky</option>
-                            <option value="LA">Louisiana</option>
-                            <option value="MA">Massachusetts</option>
-                            <option value="MD">Maryland</option>
-                            <option value="ME">Maine</option>
-                            <option value="MI">Michigan</option>
-                            <option value="MN">Minnesota</option>
-                            <option value="MO">Missouri</option>
-                            <option value="MS">Mississippi</option>
-                            <option value="MT">Montana</option>
-                            <option value="NC">North Carolina</option>
-                            <option value="ND">North Dakota</option>
-                            <option value="NE">Nebraska</option>
-                            <option value="NH">New Hampshire</option>
-                            <option value="NJ">New Jersey</option>
-                            <option value="NM">New Mexico</option>
-                            <option value="NV">Nevada</option>
-                            <option value="NY">New York</option>
-                            <option value="OH">Ohio</option>
-                            <option value="OK">Oklahoma</option>
-                            <option value="OR">Oregon</option>
-                            <option value="PA">Pennsylvania</option>
-                            <option value="PR">Puerto Rico</option>
-                            <option value="RI">Rhode Island</option>
-                            <option value="SC">South Carolina</option>
-                            <option value="SD">South Dakota</option>
-                            <option value="TN">Tennessee</option>
-                            <option value="TX">Texas</option>
-                            <option value="UT">Utah</option>
-                            <option value="VA">Virginia</option>
-                            <option value="VT">Vermont</option>
-                            <option value="WA">Washington</option>
-                            <option value="WI">Wisconsin</option>
-                            <option value="WV">West Virginia</option>
-                            <option value="WY">Wyoming</option>
-                            <option value="">N/A</option>
-
+                            <label for="state" class="form-label">State</label>
+                        <select class="form-select" aria-label="State" id="state" v-model="form.state" required aria-required="true">
+                            <option v-for="state in states" :value="state.id" :key="state.id">{{state.description}}</option>
                         </select>
                         </div>
 
                         
                         <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="Postal Code" aria-label="Postal Code" v-model="form.postalCode">
+                        <label for="postalCode" class="form-label">Postal Code</label>
+                        <input type="text" class="form-control" placeholder="#####" aria-label="Postal Code" id="postalCode" v-model="form.zip" required aria-required="true" v-maska="'#####'">
                         </div>
 
                     </div><!--end form row-->
 
                     <div class="row">
                         <div class="col-sm-4">
-                        <input type="text" class="form-control" placeholder="Country" aria-label="Country" v-model="form.country">
+                            <label for="country" class="form-label">Country</label>
+                            <select class="form-select" aria-label="Country" id="country" v-model="form.country" required aria-required="true">
+                                <option v-for="country in countries" :value="country.id" :key="country.id">{{country.description}}</option>
+                            </select>
                         </div>                        
                         <div class="col-sm-4">
+                            <label for="citizenship" class="form-label">Citizenship</label>                             
+                            <select class="form-select" aria-label="Citizen" id="citizenship" v-model="form.citizenship" required aria-required="true">
+                                <option v-for="citizenshipStatus in citizenshipStatuses" :value="citizenshipStatus.id" :key="citizenshipStatus.id">{{citizenshipStatus.description}}</option>
+                            </select>
                         </div>
                         <div class="col-sm-4">
+                            
+
+                            <!-- <label for="startDate" class="form-label">Start Date</label>
+                            <select class="form-select" aria-label="Start Date" id="startDate" v-model="form.startDate">
+                                <option v-for="startDate in startDates" :value="startDate.id" :key="startDate.id">{{startDate.date}}</option>
+                            </select> -->
                         </div>
 
                         </div><!--end form row-->
 
-<!--                     
-                    <div class="row">
-
-                         <div class="col-sm-4">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" v-model="form.citizen" />
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    US Citizen
-                                </label>
-                                </div>
-                        </div>
-
-                        <div class="col-sm-4"></div>
-                        <div class="col-sm-4"></div> -->
-
-                            <!--</div>--><!--end form row-->
-                    <button class="btn btn-primary">Register For Portal</button>
+           
+                    <div class="text-center text-md-start">
+                    <button :disabled="loading" class="btn btn-success">
+                        <span v-if="loading" class="spinner mx-5"></span>
+                        <span v-else>Submit Registration</span>
+                        </button></div>
 
 
 
@@ -155,47 +118,161 @@
             </div><!--end contain-->
         
     
+    </div><!---end section-->
+    
+<!-- Modal -->
+<div class="modal fade" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="registrationModalLabel">Error</h5>
+        <button type="button" class="btn-close" @click="closeModal" aria-label="Close"></button>
+      </div>
+      <div class="p-3">
+
+        There was an error with your submission
+           <br />{{errorMessage}}
+      </div>
+
+
+      <div class="modal-footer">
+          <!-- <a href="https://portal.csuglobal.edu/site/index"><button class="btn btn-primary">Log In to Portal</button></a> -->
+        <button class="btn btn-secondary" @click="closeModal">Close</button>
+      </div>
     </div>
+  </div>
+</div><!---end modal-->
 </template>
 
 <script>
 import axios from 'axios';
+import { Modal } from 'bootstrap';
+import { maska } from 'maska'
+
 
 
 export default {
     name: 'RegistrationForm',
+    directives: { maska },
     props: {
 
   },
   data(){
-        return{
-            form: {
-                firstName: null,
-                lastName: null,
-                telephone: null,
-                email: null,
-                dob: null,
-                address: null,
-                city: null,
-                state: "State",
-                country: null,
-                postalCode: null,
-                citizen: false,    
-            }
+    return{
+        form: {
+            firstName: null,
+            lastName: null,
+            phone: null,
+            email: null,
+            dob: null,
+            address: null,
+            city: null,
+            state: null,
+            country: null,
+            zip: null,
+            citizenship: null,
+            startDate: null,    
+        },
+        states: [],
+        countries: [],
+        citizenshipStatuses: [],
+        startDates: [],
+        myModal: null,
+        tempUserData: null,
+        loading: false,
+        confirmEmail:null,
+        emailError:null,
+        displayValidationError:null,
+        errorMessage:"",
         }
     },
+
     methods:{
         submitForm(){
-            axios.post('/contact', this.form)
+            if (this.emailError) {
+                this.errorMessage = `Your Emails don't match`;
+                this.showModal();
+            } else {
+            this.loading = true;
+            const headers = { "Content-Type": "application/json" };
+            axios.post('https://portal.csuglobal.edu/direct-api/v1/student/create', this.form, {headers})
                  .then((res) => {
                      //Perform Success Action
+                    console.log(res.data);
+                    if (res.data.ok) {
+                    this.tempUserData = res.data;
+                    this.$router.push('/confirmation');
+                    } else {
+                        console.log("error!")
+                        this.errorMessage = res.data.error;
+                        this.loading=false;
+                        this.showModal();
+                    }                   
                  })
                  .catch((error) => {
                      // error.response.status Check status code
+                    console.log(error);
+                    this.errorMessage = error;
+                    this.loading=false;
+                    this.showModal();
                  }).finally(() => {
                      //Perform action in always
+                     this.loading=false;
                  });
-        }
+            }
+        },
+        showModal(){
+            this.myModal = new Modal(document.getElementById('registrationModal'), {})
+            this.myModal.show()
+        },
+        closeModal(){
+            this.myModal.hide()
+        },
+        validateEmail() {
+           if(this.form.email === this.confirmEmail) {
+               this.emailError = false;
+           } else {
+            this.emailError = true;
+           }
+        },
+        
+    },
+    computed: {
+        
+    },
+    
+    created() {
+        // get states from portal api
+        axios.get("https://portal.csuglobal.edu/direct-api/v1/options/states")
+        .then(response => this.states = response.data)
+        .catch(error => {
+            this.errorMessage = error.message;
+            console.error("There was an error!", error);
+        });
+
+        // get countries from portal api
+        axios.get("https://portal.csuglobal.edu/direct-api/v1/options/countries")
+        .then(response => this.countries = response.data)
+        .catch(error => {
+            this.errorMessage = error.message;
+            console.error("There was an error!", error);
+        });
+
+        // get citizenship statuses from portal api
+        axios.get("https://portal.csuglobal.edu/direct-api/v1/options/citizenship-statuses")
+        .then(response => this.citizenshipStatuses = response.data)
+        .catch(error => {
+            this.errorMessage = error.message;
+            console.error("There was an error!", error);
+        });
+
+        // get enrollment dates from portal api
+        axios.get("https://portal.csuglobal.edu/direct-api/v1/options/start-dates")
+        .then(response => this.startDates = response.data)
+        .catch(error => {
+            this.errorMessage = error.message;
+            console.error("There was an error!", error);
+        });
     },
 }
 </script>
@@ -204,7 +281,7 @@ export default {
 <style scoped lang="scss">
 
 form .row {
-  margin-bottom:1rem;
+  margin-bottom:2rem;
 }
 h2 {
   color: #9e1831;
@@ -221,4 +298,14 @@ h2:after {
     height: 5px;
     background-color: #dedede;
 }
+
+form .form-label {
+    font-weight:600;
+}
+
+.spinner {
+    content: url('../assets/833.gif');
+    width:15px;
+}
+
 </style>

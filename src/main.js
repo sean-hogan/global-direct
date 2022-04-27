@@ -11,6 +11,7 @@ import '@popperjs/core';
 import 'bootstrap';
 import './assets/app.scss';
 
+
 //check if user is logged in before loading app
 fb.auth().onAuthStateChanged((user) => {
 

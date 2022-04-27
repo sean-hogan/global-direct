@@ -7,6 +7,7 @@ vue.config.js
 # local env files
 .env.local
 .env.*.local
+.htaccess
 
 # Log files
 npm-debug.log*

@@ -2,7 +2,7 @@
    <div class="dash">
        <Hero title="Admin Dashboard"
        body="Here is the admin dash"
-       imgsrc="hello.svg" />
+       imgsrc="833.gif" />
 
    </div>
 </template>

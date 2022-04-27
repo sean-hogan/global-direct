@@ -19,10 +19,34 @@ const routes = [{
             import ( /* webpackChunkName: "about" */ '../views/About.vue')
     },
     {
+        path: '/faq',
+        name: 'FAQ',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () =>
+            import ( /* webpackChunkName: "faq" */ '../views/FAQ.vue')
+    },
+    {
+        path: '/calendar',
+        name: 'Calendar',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () =>
+            import ( /* webpackChunkName: "calendar" */ '../views/Calendar.vue')
+    },
+    {
         path: '/get-started',
         name: 'GetStarted',
         component: () =>
             import ('../views/GetStarted.vue')
+    },
+    {
+        path: '/confirmation',
+        name: 'Confirmation',
+        component: () =>
+            import ('../views/Confirmation.vue')
     },
     {
         path: '/courses/:id',
@@ -74,12 +98,20 @@ const router = createRouter({
         if (savedPosition) {
             return savedPosition
         } else if (to.hash) {
+            document.body.setAttribute("tabindex", "-1");
+            document.getElementById(to.hash.substring(1)).focus();
+            console.log(to);
             return {
                 el: to.hash,
                 behavior: 'smooth',
                 top: 50,
             }
         } else {
+            //reset focus
+            document.body.setAttribute("tabindex", "-1");
+            document.body.focus();
+            document.body.removeAttribute("tabindex");
+            //scroll to top
             return { left: 0, top: 0 }
         }
     }
@@ -87,6 +119,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
+    //check for auth if trying to access locked page
     if (to.matched.some(record => record.meta.requiresAuth)) {
         if (fb.auth().currentUser) {
             next();

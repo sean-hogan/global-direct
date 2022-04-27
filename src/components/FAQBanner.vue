@@ -1,11 +1,12 @@
 <template>
 <header>
-  <div class="get-started-hero section">
+
+  <div class="faq-hero section">
     <div class="container">
     <div class="row">
         <div class="header-text col-10 col-xs-6 my-5 p-5">        
-            <h1>GET STARTED</h1>
-            <p class="lead">Register for online prerequisites with CSU Global Direct</p>
+            <h1>Frequently Asked Questions</h1>
+            <p class="lead">Learn more about CSU Global Direct’s Online Prerequisite Classes</p>
         </div>
         
     </div><!--end row-->
@@ -16,7 +17,7 @@
 
 <script>
 export default {
-    name: 'GetStartedBanner',
+    name: 'FAQBanner',
   props: {
 
   },
@@ -28,8 +29,8 @@ export default {
 
 
 
-.get-started-hero.section {
-    background-image: url(https://images.prismic.io/csug/4de4a93c-494f-42f2-97d9-82ccebf69946_header_studentLife_onlineRight.jpg);
+.faq-hero.section {
+    background-image: url(https://images.prismic.io/csug/97a62da7-3dc6-45d1-aec6-7a89af3d75f3_direct-FAQ-Header-1600x600.jpg?auto=compress,format);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

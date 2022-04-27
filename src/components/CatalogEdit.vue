@@ -12,13 +12,21 @@
 
     <input type="text" class="form-control" v-model="courseInfo.courseNumber" id="courseNumber" placeholder="Course Number" />
 
-    <input type="text" class="form-control" v-model="courseInfo.coursePrice" id="price" placeholder="Price" />
+    <!-- <input type="text" class="form-control" v-model="courseInfo.coursePrice" id="price" placeholder="Price" /> -->
 
-    <input type="text" class="form-control" v-model="courseInfo.cardText" id="cardText" placeholder="Card Text" />
+    <!-- <input type="text" class="form-control" v-model="courseInfo.cardText" id="cardText" placeholder="Card Text" /> -->
 
-    <input type="text" class="form-control" v-model="courseInfo.creditHours" id="creditHours" placeholder="Credit Hours" />
+    <!-- <input type="text" class="form-control" v-model="courseInfo.creditHours" id="creditHours" placeholder="Credit Hours" /> -->
+    <select class="form-select mb-3" aria-label="Credit Hours" v-model="courseInfo.creditHours">
+      <option value="3" selected>3 Creds</option>
+      <option value="4">4 Creds</option>
+    </select>
 
-    <input type="text" class="form-control" v-model="courseInfo.courseLevel" id="courseLevel" placeholder="Level" />
+    <!-- <input type="text" class="form-control" v-model="courseInfo.courseLevel" id="courseLevel" placeholder="Level" /> -->
+    <select class="form-select mb-3" aria-label="Level" v-model="courseInfo.courseLevel">
+      <option value="Undergraduate" selected>Undergraduate</option>
+      <option value="Graduate">Graduate</option>
+    </select>
 
     <input type="text" class="form-control" v-model="tag" @keyup.,="addTag" id="courseSubjects" placeholder="Subject Tags" />
 
@@ -26,20 +34,30 @@
      <span class="delete-tag pe-2" @click="deleteTag(tag,tag.index)">X</span>{{ tag }}
     </span>
 
-      <div class="form-check form-switch my-3">
-      <input class="form-check-input" v-model="courseInfo.hasLectures" type="checkbox" id="hasLectures" checked>
-      <label class="form-check-label" for="hasLectures">Has Lectures</label>
-    </div>
-
     <div class="form-check form-switch mb-3">
       <input class="form-check-input" v-model="courseInfo.hasLabs" type="checkbox" id="hasLabs">
       <label class="form-check-label" for="hasLabs">Has Labs</label>
     </div>
 
     <div class="form-check form-switch mb-3">
+      <input class="form-check-input" v-model="courseInfo.hasFreeLabs" type="checkbox" id="hasLabs">
+      <label class="form-check-label" for="hasLabs">Has Free Labs</label>
+    </div>
+
+    <div class="form-check form-switch mb-3">
       <input class="form-check-input" v-model="courseInfo.includesBook" type="checkbox" id="includesBook">
       <label class="form-check-label" for="includesBook">Includes Book</label>
     </div>
+
+    <select class="form-select" aria-label="enrollmentDate" v-model="courseInfo.term">
+      <option value="Term" selected>Term</option>
+      <option value="SpringD">Spring D</option>
+      <option value="FallA">Fall A</option>
+      <option value="FallB">Fall B</option>
+      <option value="FallC">Fall C</option>
+      <option value="FallD">Fall D</option>
+      <option value="ComingSoon">Coming Soon</option>
+    </select>
   
   
       <label for="formFile" class="form-label mt-3">Card Image</label>
@@ -104,9 +122,7 @@
       <img :src="course.data().cardImageUrl" class="card-img-top" alt="">
       <div class="card-body">
         <h5 class="card-title">{{course.data().courseTitle}}</h5>
-        <h6>${{course.data().coursePrice}}</h6>
-        <p class="card-text">{{course.data().cardText}}</p>
-        <router-link class="btn btn-outline-secondary mt-auto me-auto" :to="{ name: 'CourseTemplate', params: { id: course.data().courseNumber }}">More Info</router-link>
+        <router-link class="btn btn-outline-secondary mt-auto me-auto" :to="{ name: 'CourseTemplate', params: { id: course.data().courseNumber }}">Course Page</router-link>
       </div>
       <div class="card-footer">
   <button @click="showModal(course)" class="btn btn-primary mt-3 me-3">Edit</button>
@@ -135,20 +151,17 @@
   
     <input type="text" class="form-control" v-model="courseInfo.courseTitle" id="courseTitle" placeholder="Course Title" />
   
-  
     <input type="text" class="form-control" v-model="courseInfo.courseNumber" id="courseNumber" placeholder="Course Number" />
   
-  
-    <input type="text" class="form-control" v-model="courseInfo.coursePrice" id="price" placeholder="Price" />
-  
-  
-    <input type="text" class="form-control" v-model="courseInfo.cardText" id="cardText" placeholder="Card Text" />
-  
-  
-    <input type="text" class="form-control" v-model="courseInfo.creditHours" id="creditHours" placeholder="Credit Hours" />
-  
-  
-    <input type="text" class="form-control" v-model="courseInfo.courseLevel" id="courseLevel" placeholder="Level" />
+    <select class="form-select mb-3" aria-label="Credit Hours" v-model="courseInfo.creditHours">
+      <option value="3">3 Creds</option>
+      <option value="4">4 Creds</option>
+    </select>
+      
+    <select class="form-select mb-3" aria-label="Level" v-model="courseInfo.courseLevel">
+      <option value="Undergraduate">Undergraduate</option>
+      <option value="Graduate">Graduate</option>
+    </select>
   
   
     <input type="text" class="form-control" v-model="tag" @keyup.,="addTag" id="courseSubjects" placeholder="Subject Tags" />
@@ -156,20 +169,32 @@
      <span class="delete-tag pe-2" @click="deleteTag(tag, index)">X</span>{{ tag }}
     </span>
 
-      <div class="form-check form-switch mb-3">
-      <input class="form-check-input" v-model="courseInfo.hasLectures" type="checkbox" id="hasLectures" checked>
-      <label class="form-check-label" for="hasLectures">Has Lectures</label>
-    </div>
-
     <div class="form-check form-switch mb-3">
       <input class="form-check-input" v-model="courseInfo.hasLabs" type="checkbox" id="hasLabs">
       <label class="form-check-label" for="hasLabs">Has Labs</label>
     </div>
 
     <div class="form-check form-switch mb-3">
+      <input class="form-check-input" v-model="courseInfo.hasFreeLabs" type="checkbox" id="hasLabs">
+      <label class="form-check-label" for="hasLabs">Has Free Labs</label>
+    </div>
+
+    <div class="form-check form-switch mb-3">
       <input class="form-check-input" v-model="courseInfo.includesBook" type="checkbox" id="includesBook">
       <label class="form-check-label" for="includesBook">Includes Book</label>
     </div>
+
+    <select class="form-select" aria-label="enrollmentDate" v-model="courseInfo.term">
+      <option value="Term">Term</option>
+      <option value="Active">Active</option>
+      <option value="SpringD">Spring D</option>
+      <option value="FallA">Fall A</option>
+      <option value="FallB">Fall B</option>
+      <option value="FallC">Fall C</option>
+      <option value="FallD">Fall D</option>
+      <option value="ComingSoon">Coming Soon</option>
+
+    </select>
   
     <label for="formFile" class="form-label">Card Image</label>
     <input class="form-control mb-5" type="file" @change="uploadImage" id="formFile">
@@ -209,7 +234,7 @@
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
         <button @click="updateCourse()" type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
@@ -242,19 +267,18 @@ export default {
           courseInfo: {
             courseTitle:null,
             courseNumber:null,
-            coursePrice:null,
-            cardText:null,
             cardImageUrl:null,
-            creditHours:null,
-            courseLevel:null,
+            creditHours:"3",
+            courseLevel:"Undergraduate",
             courseSubjects:[],
             recommendedPrerequisites:[],
             courseDescription:null,
             courseObjectives:null,
-            hasLectures:null,
             hasLabs:null,
+            hasFreeLabs:null,
             includesBook:null,
             optionalNotes:null,
+            term:"Term",
 
           },
           activeItem:null,

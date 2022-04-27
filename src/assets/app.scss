@@ -1,8 +1,10 @@
 $green: #18c9b9;
 $red: #9e1831;
-$grey: #f2f2f2;
+$grey: rgb(242, 242, 242);
 $blue: #48afea;
-$primary: $blue;
+$gold: #d2903f;
+$primary: $green;
+$secondary: $blue;
 $success: $red;
 //button style
 #app .btn {
@@ -44,6 +46,10 @@ $success: $red;
     width: 100px;
     height: 5px;
     background-color: #1c2333;
+}
+
+#app .accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgb(24 201 185 / 50%);
 }
 
 //Import BS after customizations
