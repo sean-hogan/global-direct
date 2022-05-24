@@ -2,28 +2,36 @@
   <HomeHero />
   <SubHero />
   <main id="main-content">
-  <Catalog />
-  <HomeFAQ />  
+  <HomeCatalog />
+  <HomeCompareValue />
+  <HomeFeatureLeft />
+  <HomeFeatureRight />
+  <HomeCalendarCTA />
   </main>
   <aside>
-  <Features />
-  <Testimonials />
   <SchoolFeature />
-  <PictureCardFeatures />
+  <Testimonials />
+  <HomeFAQ />  
+  <!-- <PictureCardFeatures /> -->
   <AdvisorCallToAction />
   </aside>
+  <!-- <Features /> -->
 </template>
 
 <script>
 // @ is an alias to /src
 import HomeHero from '@/components/HomeHero.vue'
 import SubHero from '@/components/SubHero.vue'
-import Features from '@/components/Features.vue'
-import Catalog from '@/components/Catalog.vue'
-import HomeFAQ from '@/components/HomeFAQ.vue'
+// import Features from '@/components/Features.vue'
+import HomeCatalog from '@/components/HomeCatalog.vue'
+import HomeCompareValue from '@/components/HomeCompareValue.vue'
+import HomeFeatureLeft from '@/components/HomeFeatureLeft.vue'
+import HomeFeatureRight from '@/components/HomeFeatureRight.vue'
+import HomeCalendarCTA from '@/components/HomeCalendarCTA.vue'
 import Testimonials from '@/components/Testimonials.vue'
 import SchoolFeature from '@/components/SchoolFeature.vue'
-import PictureCardFeatures from '@/components/PictureCardFeatures.vue'
+import HomeFAQ from '@/components/HomeFAQ.vue'
+// import PictureCardFeatures from '@/components/PictureCardFeatures.vue'
 import AdvisorCallToAction from '@/components/AdvisorCallToAction.vue'
 
 //animate on scroll
@@ -35,12 +43,16 @@ export default {
   components: {
     HomeHero,
     SubHero,
-    Features,
-    Catalog,
+    // Features,
+    HomeCatalog,
     HomeFAQ,
+    HomeCompareValue,
+    HomeFeatureLeft,
+    HomeFeatureRight,
+    HomeCalendarCTA,
     Testimonials,
     SchoolFeature,
-    PictureCardFeatures,
+    // PictureCardFeatures,
     AdvisorCallToAction,
   },
    mounted() {

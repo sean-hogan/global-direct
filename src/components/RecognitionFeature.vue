@@ -1,5 +1,5 @@
 <template>
-<div class="top-ten-feature section bg-grey">
+<div class="top-ten-feature section">
     <div class="container px-5 py-5">
 
    

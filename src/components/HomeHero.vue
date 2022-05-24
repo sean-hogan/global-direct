@@ -4,12 +4,15 @@
     <div class="container">
     <div class="row">
         <div class="col text-white my-5 p-5">        
-            <h1 class="mb-3" data-aos="fade" data-aos-duration="1000" data-aos-once="true">Accredited, Affordable Online College Courses</h1>
+            <h1 class="mb-3" data-aos="fade" data-aos-duration="1000" data-aos-once="true">Global Education.
+              <br/>Hometown Price.
+              <br />Direct to You.
+            </h1>
             <p class="lead" data-aos="fade" data-aos-delay="100" data-aos-duration="1000" data-aos-once="true">Complete your prerequisites 100% online</p>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-5">
-          <router-link class="btn btn-primary btn-lg px-4 me-md-2" to="/#catalog" data-aos="fade" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true">EXPLORE <span class="visually-hidden"> our course offerings</span></router-link>
-          <router-link class="btn btn-primary btn-lg px-4" to="/get-started" data-aos="fade" data-aos-delay="300" data-aos-duration="1000" data-aos-once="true">REGISTER <span class="visually-hidden"> with a quick form</span></router-link>
-        </div>
+            <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-5"> -->
+          <router-link class="btn btn-success" to="/#catalog" data-aos="fade" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true">Explore Courses <i class="bi bi-arrow-right ms-2" /></router-link>
+          <!-- <router-link class="btn btn-primary btn-lg px-4" to="/get-started" data-aos="fade" data-aos-delay="300" data-aos-duration="1000" data-aos-once="true">REGISTER <span class="visually-hidden"> with a quick form</span></router-link> -->
+        <!-- </div> -->
         </div>
         
     </div><!--end row-->
@@ -43,24 +46,24 @@ export default {
   font-weight:700;
 }
 
-.btn, .btn:focus, .btn:active {
-  width: 180px;
-  text-align: center;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-decoration: none;
-  padding: 10px 0;
-  margin-right: 15px;
-  background-repeat: no-repeat;
-  background-position: 90%;
-  background-color: #18c9b9;
-  border-radius: 5px;
-}
+// .btn, .btn:focus, .btn:active {
+//   width: 180px;
+//   text-align: center;
+//   color: #fff;
+//   font-size: 18px;
+//   font-weight: 700;
+//   letter-spacing: 2px;
+//   text-decoration: none;
+//   padding: 10px 0;
+//   margin-right: 15px;
+//   background-repeat: no-repeat;
+//   background-position: 90%;
+//   background-color: #18c9b9;
+//   border-radius: 5px;
+// }
 
-.btn-primary:hover {
-  border-color:#fff;
-}
+// .btn-primary:hover {
+//   border-color:#fff;
+// }
 
 </style>

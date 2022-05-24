@@ -1,5 +1,5 @@
 <template>
-<div class="features section bg-grey">
+<div class="features section">
     <div class="container px-5 py-5">
         <div class="text-center header" data-aos="fade" data-aos-duration="500" data-aos-once="true" data-aos-offset="50">
         <h2 class="my-5">Accredited, Affordable, 100% Online</h2>

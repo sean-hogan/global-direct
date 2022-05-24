@@ -105,14 +105,24 @@
 
                 
 
-                <p v-if="course.term === 'Active'" class="text-muted">Enroll by {{dayjs(enrollmentDate).subtract(3, 'day').format('MMMM D, YYYY')}} to reserve your spot
+                <p v-if="course.term === 'Active'" class="text-muted">Enroll by {{dayjs(enrollmentDate).subtract(6, 'day').format('MMMM D, YYYY')}} to reserve your spot
                 <br /><router-link to="/calendar">View The Term Schedule</router-link> for monthly start dates</p>
 
-                <p v-else-if="course.term === 'SpringB'" class="text-muted">Enroll by April 15, 2022 to reserve your spot
+                <p v-else-if="course.term === 'SpringD'" class="text-muted">Enroll by June 6, 2022 to reserve your spot
                 <br /><router-link to="/calendar">View The Term Schedule</router-link> for monthly start dates</p>
                 
-                <p v-else-if="course.term === 'SpringC'" class="text-muted">Enroll by May 13, 2022 to reserve your spot
+                <p v-else-if="course.term === 'FallA'" class="text-muted">Enroll by July 12, 2022 to reserve your spot
                 <br /><router-link to="/calendar">View The Term Schedule</router-link> for monthly start dates</p>
+
+                <p v-else-if="course.term === 'FallB'" class="text-muted">Enroll by August 9, 2022 to reserve your spot
+                <br /><router-link to="/calendar">View The Term Schedule</router-link> for monthly start dates</p>
+
+                <p v-else-if="course.term === 'FallC'" class="text-muted">Enroll by September 6, 2022 to reserve your spot
+                <br /><router-link to="/calendar">View The Term Schedule</router-link> for monthly start dates</p>
+
+                <p v-else-if="course.term === 'FallD'" class="text-muted">Enroll by October 4, 2022 to reserve your spot
+                <br /><router-link to="/calendar">View The Term Schedule</router-link> for monthly start dates</p>
+                <p>Please note that courses may be closed due to no or low enrollment</p>
 
                 <p v-if="course.includesBook">Total course cost does include the required text</p>
                 <p v-else>Total course cost does not include the required text</p>
@@ -318,7 +328,6 @@ export default {
     },
     enrollmentDate() {
        //compute the closest start date after now from start dates in store
-       console.log(dayjs().add(3, 'day'))
        return this.$store.state.startDates.find(date => dayjs(date).isAfter(dayjs().add(3, 'day')));      
     },
     relatedCourses() {

@@ -1,60 +1,26 @@
 <template>
-<div class="get-started-call-to-action section bg-light">
+<section class="advisor-call-to-action section mt-5">
     <div class="container px-4 py-5 text-center">
-       <div class="row justify-content-center">
-            <!-- <div class="col-sm-4 text-center" style="padding:20px;">
-                <h2>Get Started Now!</h2>
-                <p>Enrolling in classes with CSU Global Direct takes less than 15 minutes. Get started here:</p>
-                    <router-link to="/get-started#register" class="btn btn-success mt-4">Register</router-link>
-              <p>(Normal business hours: 7am-5pm M-F MST)</p> 
-            </div> -->
-            
-            <div class="col-sm-6 text-center" style="background-color:#f3f3f3; padding:20px;">
-                <div id="rfifull" class="bl5 br5">
-                    <h2>Ready To Learn More?</h2>
-                    <p>If you have any questions about CSU Global Direct, please call <a class="link-success" href="tel:1-800-672-0624">1-800-672-0624</a> to speak with an advisor, or email:</p>
-                    <a class="btn btn-outline-success mt-4" href="mailto:global.direct@csuglobal.edu"><i class="bi bi-envelope text-success" /> global.direct@csuglobal.edu</a>
+        <div class="row justify-content-center">
+          <div class="col-md-10 floaty-bg p-5">
 
-                    <!-- <div id="wrapper_rfiformfull" class="tblr5">
-                        <form id="rfiformfull" class="rfiquickform form" action="" method="POST" novalidate="novalidate">
-                            <p id="rfiformfull-message" class="clr msg">* Required Fields</p>
-                            <input type="hidden" name="url" value="/request-information">
-                            <input type="hidden" name="lead_source" value="web_rfi">
-
-                            <input id="gclid" name="gclid" type="hidden" value="">
-                            <input type="hidden" name="how_did_you_hear" value="">
-                            
-                             <input type="text" class="form-control" id="firstName" aria-describedby="firstName" placeholder="First Name">
-                             <input type="text" class="form-control" id="lastName" aria-describedby="lastName" placeholder="Last Name">
-                             <input type="email" class="form-control" id="rfiEmail" aria-describedby="rfiEmail" placeholder="Email">
-                             <input type="phone" class="form-control" id="phoneNumber" aria-describedby="phoneNumber" placeholder="Phone">
+<h4 class="display-3 mb-4 mt-5">Let's Get Started Together</h4>
+<p class="lead mb-5">You don't even have to fill out your registration alone. Our Enrollment Counselors are standing by to help you if you need us.</p>
+<div>
+    <router-link to="/request-information" class="btn btn-lg btn-light rounded-pill px-5">Learn More</router-link>
+</div>
+</div><!--col-->
 
 
-                            <button id="rfi_submit" class="btn btn-primary rfi-submit my-3" type="submit" >Learn More</button>
-                        </form>
-                        <div class="clr"></div>
-                    </div>
-                    <p class="disclaimer">By submitting this form, I agree that representatives of CSU Global may contact me about educational services via email, phone, or text message including automated technology. Message and data rates may apply.</p> -->
-                </div>
-            </div>
-
-            <div class="col-sm-6 text-center" style="padding:20px;">
-                <h2>Prefer To Chat Online?</h2>
-                
-                        <p>Click the button below to chat with a CSU Global Direct advisor:</p>
-
-                        <button class="btn btn-outline-success mt-4" onclick="window.open('https://home-c28.incontact.com/incontact/chatclient/chatclient.aspx?poc=fe583801-12a3-41b5-84b9-f949034df884&amp;bu=4598395&amp;P1=FirstName&amp;P2=LastName&amp;P3=first.last@company.com&amp;P4=555-555-5555','chatWindow','location=no,height=630,menubar=no,status=no,width=410',true); return false;">Click Here to Chat Live</button>           
-                    
-            </div>
         </div><!--End Row-->
 
     </div><!--end container-->
-    </div><!--end section-->
+    </section><!--end section-->
 </template>
 
 <script>
 export default {
-  name: 'GetStartedCallToAction',
+  name: 'AdvisorCallToAction',
   props: {
 
   },
@@ -63,8 +29,30 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.form-control {
-  margin-bottom:5px;
+.advisor-call-to-action {
+  color:#fff;
 }
+.floaty-bg{
+  background-image: url(https://images.prismic.io/csug/fcbcb260-507b-4665-9cfe-233fce2acef6_CTA-Box.png);
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 4px;
+}
+
+.section {
+  background: linear-gradient(#fff 50%, #eee 50%);
+}
+
+.btn-light {
+  color:#aa1d40;
+}
+
+.btn-light:hover {
+  color:#aa1d40;
+  background-color: #eee;
+}
+
+
 
 </style>

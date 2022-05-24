@@ -1,8 +1,8 @@
 <template>
 <div class="footer section">
-    <div class="container-fluid">
+    <div class="container col-xxl-8 py-5">
      <footer>
-         <div class="row mx-5 p-5">
+         <div class="row">
             <div class="col-sm-4">
                 <img src="../assets/logo_csuglobal.png" alt="">
                 <p class="mt-3"><strong>Colorado State University Global</strong>
@@ -95,8 +95,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .footer {
-    border-top:1px solid #000;
-    background-color:#f1f1f1;
+    background-color:#eee;
 }
 
 ul {

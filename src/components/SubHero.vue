@@ -3,7 +3,7 @@
 
         <div class="container pt-5">
         <div class="text-center header" data-aos="fade" data-aos-duration="1000" data-aos-once="true" data-aos-delay="400">
-        <h2 id="global-direct-features">Register Now: Classes Start Monthly</h2>
+        <!-- <h2 id="global-direct-features">Register Now: Classes Start Monthly</h2> -->
         </div>
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-4 text-center">
         
@@ -47,6 +47,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+img {
+    margin-bottom:1rem;
+}
 
 </style>

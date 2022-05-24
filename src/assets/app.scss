@@ -4,11 +4,13 @@ $grey: rgb(242, 242, 242);
 $blue: #48afea;
 $gold: #d2903f;
 $primary: $green;
-$secondary: $blue;
+$secondary: $green;
 $success: $red;
 //button style
 #app .btn {
     font-weight: 700;
+    border-radius: 40px;
+    padding-inline: 1.5rem;
 }
 
 #app .btn-primary {
@@ -38,14 +40,20 @@ $success: $red;
     font-weight: 600;
 }
 
-#app .section .header h2:after {
-    content: "";
-    display: block;
-    margin: 20px auto;
-    position: relative;
-    width: 100px;
-    height: 5px;
-    background-color: #1c2333;
+// #app .section .header h2:after {
+//     content: "";
+//     display: block;
+//     margin: 20px auto;
+//     position: relative;
+//     width: 100px;
+//     height: 5px;
+//     background-color: #1c2333;
+// }
+.carousel__prev,
+.carousel__next {
+    background-color: #9e1831!important;
+    box-sizing: content-box;
+    border: 5px solid white;
 }
 
 #app .accordion-button:focus {

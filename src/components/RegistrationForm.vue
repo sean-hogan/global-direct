@@ -4,8 +4,13 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                         <h2 id="registration-form-header">Register</h2>
-                        <p class="lead">All fields are required to register for the enrollment portal</p>
+                        <p class="lead">All fields are required to register</p>
+
+
                 <form @submit.prevent="submitForm" aria-labelledby="registration-form-header">
+                    <div class="form-block">
+                    <h3>Account Information</h3>
+                    <p class="text-muted">We'll use this to set up your account</p>
                     <div class="row">
 
 
@@ -43,6 +48,13 @@
                         </div>
                         
                     </div><!--end form row-->
+                    </div>
+
+
+    <div class="form-block">
+
+                    <h3>Location Information</h3>
+                    <p class="text-muted">To make sure you get your transcripts</p>
                    
                     <div class="row">
                         <div class="col-sm-8">
@@ -73,6 +85,14 @@
                         </div>
 
                     </div><!--end form row-->
+                        
+
+                    </div>
+                    <div class="form-block">
+
+
+                    <h3>Demographic Information</h3>
+                    <p class="text-muted">We want to make sure we are doing a good job supporting diversity, equity, and inclusion</p>
 
                     <div class="row">
                         <div class="col-sm-4">
@@ -82,6 +102,7 @@
                             </select>
                         </div>                        
                         <div class="col-sm-4">
+
                             <label for="citizenship" class="form-label">Citizenship</label>                             
                             <select class="form-select" aria-label="Citizen" id="citizenship" v-model="form.citizenship" required aria-required="true">
                                 <option v-for="citizenshipStatus in citizenshipStatuses" :value="citizenshipStatus.id" :key="citizenshipStatus.id">{{citizenshipStatus.description}}</option>
@@ -89,15 +110,41 @@
                         </div>
                         <div class="col-sm-4">
                             
+                             <label for="gender" class="form-label">Gender</label>                             
+                            <select class="form-select" aria-label="gender" id="gender" v-model="form.gender" required aria-required="true">
+                                <option v-for="gender in genders" :value="gender.id" :key="gender.id">{{gender.description}}</option>
+                            </select>
+                            
 
-                            <!-- <label for="startDate" class="form-label">Start Date</label>
-                            <select class="form-select" aria-label="Start Date" id="startDate" v-model="form.startDate">
-                                <option v-for="startDate in startDates" :value="startDate.id" :key="startDate.id">{{startDate.date}}</option>
-                            </select> -->
+
                         </div>
 
                         </div><!--end form row-->
 
+                        <div class="row">
+                        <div class="col-sm-4">
+                            <label for="ethnicity" class="form-label">Ethnicity</label>
+                            <select class="form-select" aria-label="ethnicity" id="ethnicity" v-model="form.ethnicity" required aria-required="true">
+                                <option v-for="ethnicity in ethnicities" :value="ethnicity.id" :key="ethnicity.id">{{ethnicity.description}}</option>
+                            </select>
+                        </div>                        
+                        <div class="col-sm-4">
+
+                            <label for="isHispanic" class="form-label">Hispanic/Latino</label>                             
+                            <select class="form-select" aria-label="Citizen" id="isHispanic" v-model="form.isHispanic" required aria-required="true">
+                                <option :value='true'>I am of Hispanic or Latino origins</option>
+                                <option :value='false'>I am NOT of Hispanic or Latino origins</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4">
+                            
+                           
+
+                        </div>
+
+                        </div><!--end form row-->
+
+                    </div>
            
                     <div class="text-center text-md-start">
                     <button :disabled="loading" class="btn btn-success">
@@ -171,11 +218,16 @@ export default {
             country: null,
             zip: null,
             citizenship: null,
+            gender: null,
+            ethnicity: null,
+            isHispanic: null,
             startDate: null,    
         },
         states: [],
         countries: [],
         citizenshipStatuses: [],
+        genders: [],
+        ethnicities: [],
         startDates: [],
         myModal: null,
         tempUserData: null,
@@ -273,6 +325,21 @@ export default {
             this.errorMessage = error.message;
             console.error("There was an error!", error);
         });
+
+        // get genders (lol)  from portal api
+        axios.get("https://portal.csuglobal.edu/direct-api/v1/options/genders")
+        .then(response => this.genders = response.data)
+        .catch(error => {
+            this.errorMessage = error.message;
+            console.error("There was an error!", error);
+        });
+        // get ethnicities lol (lol)  from portal api
+        axios.get("https://portal.csuglobal.edu/direct-api/v1/options/ethnicities")
+        .then(response => this.ethnicities = response.data)
+        .catch(error => {
+            this.errorMessage = error.message;
+            console.error("There was an error!", error);
+        });
     },
 }
 </script>
@@ -306,6 +373,16 @@ form .form-label {
 .spinner {
     content: url('../assets/833.gif');
     width:15px;
+}
+
+h3 {
+    margin-top:2rem;
+    font-size: 1.2rem;
+    color:#18c9b9;
+}
+
+.form-block {
+    margin-bottom:4rem;
 }
 
 </style>
