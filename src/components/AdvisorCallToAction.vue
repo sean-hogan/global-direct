@@ -7,7 +7,7 @@
 <h4 class="display-3 mb-4 mt-5">Let's Get Started Together</h4>
 <p class="lead mb-5">You don't even have to fill out your registration alone. Our Enrollment Counselors are standing by to help you if you need us.</p>
 <div>
-    <router-link to="/get-started" class="btn btn-lg btn-light rounded-pill px-5 me-4">Apply Now</router-link>
+    <router-link to="/get-started" class="btn btn-lg btn-light rounded-pill px-5 me-lg-4 mb-3 mb-lg-0">Apply Now</router-link>
     <router-link to="/request-information" class="btn btn-lg btn-light rounded-pill px-5">Learn More</router-link>
 </div>
 </div><!--col-->
@@ -47,11 +47,15 @@ export default {
 
 .btn-light {
   color:#aa1d40;
+  transition: all 0.3s ease-in-out;
+
 }
 
 .btn-light:hover {
   color:#aa1d40;
   background-color: #eee;
+  transform: scale(1.1);
+
 }
 
 

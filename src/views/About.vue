@@ -2,7 +2,7 @@
 <AboutBanner />
 <main id="main-content" class="about">
 <CardFeatures />
-<SchoolFeature />
+<AboutSchoolFeature />
 <RecognitionFeature />
 </main>
 <aside>
@@ -15,7 +15,7 @@
 // @ is an alias to /src
 import AboutBanner from '@/components/AboutBanner.vue'
 import CardFeatures from '@/components/CardFeatures.vue'
-import SchoolFeature from '@/components/SchoolFeature.vue'
+import AboutSchoolFeature from '@/components/AboutSchoolFeature.vue'
 import RecognitionFeature from '@/components/RecognitionFeature.vue'
 import AdvisorCallToAction from '@/components/AdvisorCallToAction.vue'
 
@@ -28,7 +28,7 @@ export default {
   components: {
     AboutBanner,
     CardFeatures,
-    SchoolFeature,
+    AboutSchoolFeature,
     RecognitionFeature,
     AdvisorCallToAction,
       },

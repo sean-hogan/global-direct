@@ -5,11 +5,10 @@
                         <div class="col-lg-8">
                         <h2 id="registration-form-header">Register</h2>
                         <p class="lead">All fields are required to register</p>
-                        <div class="gold-bar"></div>
 
 
-                <form @submit.prevent="submitForm" aria-labelledby="registration-form-header" :class="displayValidationError ? 'errors' : false">
-                    <div class="form-block" id="account-info">
+                <form @submit.prevent="submitForm" aria-labelledby="registration-form-header">
+                    <div class="form-block">
                     <h3>Account Information</h3>
                     <p class="text-muted">We'll use this to set up your account</p>
                     <div class="row">
@@ -17,15 +16,15 @@
 
                         <div class="col-sm-4">
                         <label for="firstName" class="form-label">First name</label>
-                        <input type="text" class="form-control" placeholder="e.g. Terry" aria-label="First name"  id="firstName" v-model="form.firstName"  aria-required="true">
+                        <input type="text" class="form-control" placeholder="e.g. Terry" aria-label="First name"  id="firstName" v-model="form.firstName" required aria-required="true">
                         </div>
                         <div class="col-sm-4">
                         <label for="lastName" class="form-label">Last name</label>
-                        <input type="text" class="form-control" placeholder="e.g. Pratchett" aria-label="Last name" id="lastName" v-model="form.lastName"  aria-required="true">
+                        <input type="text" class="form-control" placeholder="e.g. Pratchett" aria-label="Last name" id="lastName" v-model="form.lastName" required aria-required="true">
                         </div>
                         <div class="col-sm-4">
                         <label for="dateOfBirth" class="form-label">Date of Birth</label>
-                        <input type="date" class="form-control" id="dateOfBirth" aria-label="Date of Birth" v-model="form.dob"  aria-required="true">
+                        <input type="date" class="form-control" id="dateOfBirth" aria-label="Date of Birth" v-model="form.dob" required aria-required="true">
                         </div>
 
                     </div><!--end form row-->
@@ -34,7 +33,7 @@
                         
                         <div class="col-sm-4">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" placeholder="e.g. terry@example.com" aria-label="Email" id="email" v-model="form.email"  aria-required="true">
+                        <input type="email" class="form-control" placeholder="e.g. terry@example.com" aria-label="Email" id="email" v-model="form.email" required aria-required="true">
                         </div>
 
                         <div class="col-sm-4">
@@ -52,7 +51,7 @@
                     </div>
 
 
-                <div v-if="formStep > 1" class="form-block" id="location-info">
+    <div class="form-block">
 
                     <h3>Location Information</h3>
                     <p class="text-muted">To make sure you get your transcripts</p>
@@ -89,7 +88,7 @@
                         
 
                     </div>
-                    <div v-if="formStep > 2" class="form-block" id="demographic-info">
+                    <div class="form-block">
 
 
                     <h3>Demographic Information</h3>
@@ -146,13 +145,8 @@
                         </div><!--end form row-->
 
                     </div>
-
-                    <div class="buttons-div">
-                        <div v-if="displayValidationError" class="text-success my-3">All Fields Are Required</div>
-                        <button v-if="formStep < 3" class="btn btn-success" @click.prevent="nextStep">Next</button>
-                    </div>
            
-                    <div v-if="formStep == 3" class="text-center text-md-start">
+                    <div class="text-center text-md-start">
                     <button :disabled="loading" class="btn btn-success">
                         <span v-if="loading" class="spinner mx-5"></span>
                         <span v-else>Submit Registration</span>
@@ -202,8 +196,10 @@ import axios from 'axios';
 import { Modal } from 'bootstrap';
 import { maska } from 'maska'
 
+
+
 export default {
-    name: 'RegistrationForm',
+    name: 'OldRegistrationForm',
     directives: { maska },
     props: {
 
@@ -238,10 +234,8 @@ export default {
         loading: false,
         confirmEmail:null,
         emailError:null,
-        displayValidationError:false,
+        displayValidationError:null,
         errorMessage:"",
-        formStep:1,
-        currentFormSection:"#account-info",
         }
     },
 
@@ -291,17 +285,6 @@ export default {
                this.emailError = false;
            } else {
             this.emailError = true;
-           }
-        },
-        nextStep() {
-            let array1 = Array.from(document.querySelectorAll('input'))
-            console.log(array1)
-           if(array1.every(element => element.value) ) {
-               this.displayValidationError = false
-               this.formStep++
-           } else {
-               this.displayValidationError = true
-               console.log("there")
            }
         },
         
@@ -372,7 +355,7 @@ h2 {
   font-weight: 700;
 }
 
-.gold-bar:after {
+h2:before {
     content: "";
     display: block;
     margin-top:20px;
@@ -380,7 +363,7 @@ h2 {
     position: relative;
     width: 60px;
     height: 5px;
-    background-color: rgba(210,143,63,.6);
+    background-color: #dedede;
 }
 
 form .form-label {
@@ -399,13 +382,7 @@ h3 {
 }
 
 .form-block {
-    margin-bottom:1rem;
-}
-
-form.errors {
-  :invalid {
-    outline: 2px solid red;
-  }
+    margin-bottom:4rem;
 }
 
 </style>

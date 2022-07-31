@@ -7,12 +7,12 @@
     </div>
     <div v-if="relatedCoursesList.length > 4" class="row g-0">
 
-            <Carousel :items-to-show="4" :itemsToScroll="3" :wrap-around="true" data-aos="fade" data-aos-duration="1000" data-aos-delay="100" data-aos-once="true" data-aos-offset="50">
+            <Carousel :settings="settings" :breakpoints="breakpoints" :wrap-around="true" data-aos="fade" data-aos-duration="1000" data-aos-delay="100" data-aos-once="true" data-aos-offset="50">
               
             <Slide v-for="relatedCourse in relatedCoursesList" :key="relatedCourse.index">
                 <!--course card-->
 
-                  <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: relatedCourse.courseNumber }}">
+                  <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: relatedCourse.courseTitle.replace(/\s+/g, '-').toLowerCase() }}">
                   
                   <div class="course card h-100 text-start">
                     <img :src="relatedCourse.cardImageUrl" class="card-img-top" alt="">
@@ -94,7 +94,7 @@
 <script>
 
 import { defineComponent } from 'vue'
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
+import { Carousel, Slide, Navigation } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
 
 
@@ -115,7 +115,26 @@ export default defineComponent({
       document.documentElement.style.setProperty('--carousel-color-primary', '#18c9b9');
 
     })
-  }
+  },
+  data: () => ({
+    // carousel settings
+    settings: {
+      itemsToShow: 1,
+      snapAlign: 'center',
+    },
+    // breakpoints are mobile first
+    // any settings not specified will fallback to the carousel settings
+    breakpoints: {
+      // 700px and up
+      992: {
+        itemsToShow: 2,
+      },
+      // 1024 and up
+      1200: {
+        itemsToShow: 3,
+      },
+    },
+  }),
 
 
 });

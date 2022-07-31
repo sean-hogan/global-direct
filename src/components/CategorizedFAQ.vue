@@ -3,12 +3,14 @@
 
 <div class="container px-4 py-5">
 
+
     <section aria-labelledby="academic-section-label">    <!--cat-->
-  <div class="header" data-aos="fade" data-aos-duration="500" data-aos-once="true" data-aos-offset="50">
-  <h2 id="academic-section-label">Academic</h2>
-  </div>
+
          <div class="row justify-content-center" data-aos="fade" data-aos-duration="500" data-aos-once="true" data-aos-offset="50">
            <div class="col-md-8">
+               <div class="header mb-4">
+              <h2 id="academic-section-label">Academic</h2>
+              </div>
 
          <div class="accordion accordion-flush" id="accordionFlushExample">
             <div class="accordion-item">
@@ -66,15 +68,17 @@
          </div><!--end row-->
          </section><!--end cat-->
 
-             <section aria-labelledby="admissions-section-label">    <!--cat-->
+             <section class="" aria-labelledby="admissions-section-label">    <!--cat-->
 
 
          
-  <div class="header" data-aos="fade" data-aos-duration="500" data-aos-once="true" data-aos-offset="50">    
-  <h2 id="admissions-section-label">Admissions</h2>
-  </div>
+ 
          <div class="row justify-content-center" data-aos="fade" data-aos-duration="500" data-aos-once="true" data-aos-offset="50">
            <div class="col-md-8">
+
+              <div class="header mb-4">    
+              <h2 id="admissions-section-label">Admissions</h2>
+              </div>
                <div class="accordion accordion-flush" id="accordionCostExample">
 
 
@@ -91,16 +95,6 @@
                     </div><!--end accordion item-->
 
 
-                    <!-- <div class="accordion-item">
-                        <h3 class="accordion-header" id="flush-headingSeven">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
-                            <span class="text-info">Does CSU Global Direct follow the Gold and Burgundy tracks?</span>
-                        </button>
-                        </h3>
-                        <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">No. CSU Global Direct students can take courses in every single term if they choose, as long as the maximum enrollment policy is followed.</div>
-                        </div>
-                    </div> -->
 
                     <div class="accordion-item">
                         <h3 class="accordion-header" id="flush-headingEight">
@@ -135,11 +129,13 @@
 
       <section aria-labelledby="cost-section-label">    <!--cat-->
 
-  <div class="header" data-aos="fade" data-aos-duration="500" data-aos-once="true" data-aos-offset="50">   
-  <h2 id="cost-section-label">Cost</h2>
-  </div>
          <div class="row justify-content-center" data-aos="fade" data-aos-duration="500" data-aos-once="true" data-aos-offset="50">
            <div class="col-md-8">
+             
+            <div class="header mb-4">   
+            <h2 id="cost-section-label">Cost</h2>
+            </div>
+
                <div class="accordion accordion-flush" id="accordionAdmissionsExample">
 
                  <div class="accordion-item">
@@ -282,6 +278,7 @@
          </div><!--end row-->
          </section><!--end cat-->
 
+
         </div><!--end container-->
     </div><!--end section-->
 
@@ -299,8 +296,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .accordion-button:not(.collapsed) {
-  color:#fff;
-  background-color:#18c9b9;
+  color:#000;
+  background-color:#eee;
 }
 
 .accordion-body {
@@ -308,7 +305,7 @@ export default {
 }
 
 .accordion-button:not(.collapsed)::after {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='black'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
 .accordion-button:focus {

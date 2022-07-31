@@ -324,7 +324,7 @@ export default {
   computed: {
     course() {
       // get the course info that matches the id of this route
-      return this.$store.state.courses.find(course => course.courseNumber === this.$route.params.id);
+      return this.$store.state.courses.find(course => course.courseTitle.replace(/\s+/g, '-').toLowerCase() === this.$route.params.id);
     },
     enrollmentDate() {
        //compute the closest start date after now from start dates in store
@@ -332,7 +332,7 @@ export default {
     },
     relatedCourses() {
       //sick one-liner to get related courses
-      return this.$store.state.courses.filter(course => (course.courseNumber !== this.$route.params.id) ? course.courseSubjects.some(subject => this.course.courseSubjects.includes(subject)) : console.log(''));
+      return this.$store.state.courses.filter(course => (course.courseTitle.replace(/\s+/g, '-').toLowerCase() !== this.$route.params.id) ? course.courseSubjects.some(subject => this.course.courseSubjects.includes(subject)) : console.log(''));
     },
 
   },
@@ -394,7 +394,7 @@ export default {
     position: relative;
     width: 60px;
     height: 5px;
-    background-color: #18c9b9;
+    background-color: #192246;
     margin-top: 10px;
 }
 

@@ -10,7 +10,7 @@
             </h1>
             <p class="lead" data-aos="fade" data-aos-delay="100" data-aos-duration="1000" data-aos-once="true">Complete your prerequisites 100% online</p>
             <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-start mt-5"> -->
-          <router-link class="btn btn-success" to="/#catalog" data-aos="fade" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true">Explore Courses <i class="bi bi-arrow-right ms-2" /></router-link>
+          <router-link class="btn btn-success" to="/courses" data-aos="fade" data-aos-delay="200" data-aos-duration="1000" data-aos-once="true">Explore Courses <i class="bi bi-arrow-right ms-2" /></router-link>
           <!-- <router-link class="btn btn-primary btn-lg px-4" to="/get-started" data-aos="fade" data-aos-delay="300" data-aos-duration="1000" data-aos-once="true">REGISTER <span class="visually-hidden"> with a quick form</span></router-link> -->
         <!-- </div> -->
         </div>

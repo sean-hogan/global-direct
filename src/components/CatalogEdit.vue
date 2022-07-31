@@ -14,7 +14,6 @@
 
     <!-- <input type="text" class="form-control" v-model="courseInfo.coursePrice" id="price" placeholder="Price" /> -->
 
-    <!-- <input type="text" class="form-control" v-model="courseInfo.cardText" id="cardText" placeholder="Card Text" /> -->
 
     <!-- <input type="text" class="form-control" v-model="courseInfo.creditHours" id="creditHours" placeholder="Credit Hours" /> -->
     <select class="form-select mb-3" aria-label="Credit Hours" v-model="courseInfo.creditHours">
@@ -81,6 +80,7 @@
      <span class="delete-tag pe-2" @click="deletePrereq(prereq,prereq.index)">X</span>{{ prereq }}
     </span>
 
+    <input type="text" class="form-control" v-model="courseInfo.cardText" id="cardText" placeholder="Card Text" />
 
     <input type="text" class="form-control" v-model="courseInfo.optionalNotes" id="optionalNotes" placeholder="Optional Notes" />
 
@@ -218,6 +218,9 @@
      <span class="delete-tag pe-2" @click="deletePrereq(prereq, index)">X</span>{{ prereq }}
     </span>
 
+    <input type="text" class="form-control" v-model="courseInfo.cardText" id="cardText" placeholder="Card Text" />
+
+
     <input type="text" class="form-control" v-model="courseInfo.optionalNotes" id="optionalNotes" placeholder="Optional Notes" />
   
     <div class="h-50">
@@ -274,6 +277,7 @@ export default {
             recommendedPrerequisites:[],
             courseDescription:null,
             courseObjectives:null,
+            cardText:null,
             hasLabs:null,
             hasFreeLabs:null,
             includesBook:null,

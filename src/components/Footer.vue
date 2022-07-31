@@ -4,7 +4,7 @@
      <footer>
          <div class="row">
             <div class="col-sm-4">
-                <img src="../assets/logo_csuglobal.png" alt="">
+                <a href="https://csuglobal.edu/"><img src="../assets/logo_csuglobal.png" alt=""></a>
                 <p class="mt-3"><strong>Colorado State University Global</strong>
                 <br />585 Salida Way
                 <br />Aurora, CO 80011</p>
@@ -14,9 +14,10 @@
             <div class="col-sm-4">
             <ul class="list-unstyled">
                 <li><router-link class="link-success text-decoration-none" to="/get-started">Get Started</router-link></li>
-                <li><router-link class="link-success text-decoration-none" to="/#catalog">Catalog</router-link></li>
+                <li><router-link class="link-success text-decoration-none" to="/courses">Catalog</router-link></li>
                 <li><router-link class="link-success text-decoration-none" to="/faq">FAQs</router-link></li>
                 <li><router-link class="link-success text-decoration-none" to="/calendar">Calendar</router-link></li>
+                <li><router-link class="link-success text-decoration-none" to="/request-information">Contact Us</router-link></li>
                 <li><router-link class="link-success text-decoration-none" to="/about">About</router-link></li>
             </ul>
             

@@ -4,7 +4,7 @@
     <div class="container">
     <div class="row">
         <div class="header-text col-10 col-xs-6 my-5 p-5">        
-            <h1>GET STARTED</h1>
+            <h1>Get Started</h1>
             <p class="lead">Register for online prerequisites with CSU Global Direct</p>
         </div>
         
@@ -37,12 +37,15 @@ export default {
 
 .header-text {
     color: #1c2333;
-    text-transform: uppercase;
+    
     background-color: hsla(0,0%,100%,.7);
 }
 
 .header-text h1 {
     font-size: 4rem;
 }
-
+.lead {
+  font-Weight: 600;
+  font-Size: 1.5rem;
+}
 </style>

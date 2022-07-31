@@ -4,7 +4,7 @@
 
 
       <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-8 gold-bar">
 
       <h2 class="mt-5 mb-3" data-aos="fade" data-aos-duration="500" data-aos-once="true" data-aos-offset="50">Getting Started Made Easy</h2>
       <div class="h5 d-flex flex-column flex-md-row justify-content-md-between mb-3 text-muted">
@@ -74,7 +74,7 @@ h2 {
   font-weight: 700;
 }
 
-h2:before {
+.gold-bar:after {
     content: "";
     display: block;
     margin-top:20px;

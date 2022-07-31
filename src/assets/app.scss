@@ -1,30 +1,70 @@
 $green: #18c9b9;
 $red: #9e1831;
 $grey: rgb(242, 242, 242);
-$blue: #48afea;
+$darkblue: #303858;
 $gold: #d2903f;
-$primary: $green;
-$secondary: $green;
+$primary: $darkblue;
+$secondary: $darkblue;
 $success: $red;
 //button style
 #app .btn {
     font-weight: 700;
     border-radius: 40px;
     padding-inline: 1.5rem;
+    transition: all 0.3s ease-in-out;
 }
 
 #app .btn-primary {
     color: #fff
 }
 
-#app .btn-outline-success:hover {
-    background: $grey;
-    color: $red;
-}
-
 #app .btn-primary:hover {
     background-color: #fff;
     color: $primary;
+    transform: scale(1.1);
+}
+
+#app .btn-success {
+    color: #fff!important;
+    background: $success;
+    transition: all 0.3s ease-in-out;
+}
+
+#app .btn-success:hover {
+    background: #7F131F;
+    border-color: #7F131F;
+    transform: scale(1.1);
+}
+
+#app .btn-success:focus,
+#app .btn-success {
+    box-shadow: none!important;
+}
+
+#app .btn-outline-success {
+    background: #fff;
+    color: $success;
+    transition: all 0.3s ease-in-out;
+}
+
+#app .btn-outline-success:hover {
+    background: #fff;
+    color: #7F131F;
+    border-color: #7F131F;
+    transform: scale(1.1);
+}
+
+#app .btn-outline-primary {
+    background: #fff;
+    color: $primary;
+    transition: all 0.3s ease-in-out;
+}
+
+#app .btn-outline-primary:hover {
+    background: #303858;
+    color: #fff;
+    border-color: #303858;
+    transform: scale(1.1);
 }
 
 #app .bg-grey {
@@ -57,7 +97,8 @@ $success: $red;
 }
 
 #app .accordion-button:focus {
-    box-shadow: 0 0 0 0.25rem rgb(24 201 185 / 50%);
+    box-shadow: 0 0 0 0.25rem rgb(158 24 49 / 50%);
+    border-radius: 0px;
 }
 
 //Import BS after customizations

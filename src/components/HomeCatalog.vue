@@ -12,10 +12,10 @@
 
         </div><!--end .header-->
 
-              <Carousel :wrap-around="true" :itemsToShow="3" data-aos="fade" data-aos-delay="100" data-aos-duration="500" data-aos-once="true" data-aos-offset="50">
+              <Carousel :wrap-around="true" :settings="settings" :breakpoints="breakpoints" data-aos="fade" data-aos-delay="100" data-aos-duration="500" data-aos-once="true" data-aos-offset="50">
 
             <Slide key="microbiology">
-            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: 'BIO204-D' }}">
+            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: 'microbiology' }}">
 
                   <div class="course card h-100">
                     <img src="https://images.prismic.io/csug/8db6fcb6-ff10-423d-aa14-a04e70bb5d02_direct-bio204.jpg?auto=compress,format" class="card-img-top" alt="">
@@ -48,7 +48,7 @@
                 </Slide>
 
                 <Slide key="biochemistry">
-            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: 'CHE351-D' }}">
+            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: 'biochemistry' }}">
 
                   <div class="course card h-100" key="one">
                     <img src="https://images.prismic.io/csug/9165e72b-1bd8-4c7e-af3d-e2493af04a4b_direct-che351.jpg?auto=compress,format" class="card-img-top" alt="">
@@ -83,7 +83,7 @@
                 </Slide>
 
                 <Slide key="organic-chemistry-one">
-            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: 'CHE345-D' }}">
+            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: 'organic-chemistry-i' }}">
 
                   <div class="course card h-100" key="one">
                     <img src="https://images.prismic.io/csug/623341dc-4ed3-46aa-a14e-804d2451f6f2_direct-che345.jpg?auto=compress,format" class="card-img-top" alt="">
@@ -115,7 +115,7 @@
 
                 
                 <Slide key="general-chemistry-one">
-            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: 'CHE121-D' }}">
+            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: 'general-chemistry-i' }}">
 
                   <div class="course card h-100" key="one">
                     <img src="https://images.prismic.io/csug/de7f12aa-73a3-45f4-8164-57de173af627_direct-che121.jpg?auto=compress,format" class="card-img-top" alt="">
@@ -147,7 +147,7 @@
                 </Slide>
 
                 <Slide key="organic-chemistry-two">
-            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: 'CHE346-D' }}">
+            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: 'organic-chemistry-ii' }}">
 
                   <div class="course card h-100" key="one">
                     <img src="https://images.prismic.io/csug/ab18028c-dd79-49f6-b97e-040b874b5495_direct-che346.jpg?auto=compress,format" class="card-img-top" alt="">
@@ -180,7 +180,7 @@
                 </Slide>
 
                 <Slide key="genetics">
-            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: 'BIO350-D' }}">
+            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: 'genetics' }}">
 
                   <div class="course card h-100" key="one">
                     <img src="https://images.prismic.io/csug/35e28090-7dec-4f24-9874-c0fe0cdc32ea_direct-bio350.jpg?auto=compress,format" class="card-img-top" alt="">
@@ -212,7 +212,7 @@
                 </Slide>
 
                 <Slide key="college-biology-one">
-            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: 'BIO181-D' }}">
+            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: 'college-biology-i' }}">
 
                   <div class="course card h-100" key="one">
                     <img src="https://images.prismic.io/csug/45691fbe-39f9-4715-b50b-5e102934cf9c_direct-bio181.jpg?auto=compress,format" class="card-img-top" alt="">
@@ -245,7 +245,7 @@
                 </Slide>
 
                 <Slide key="general-chemistry-two">
-            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: 'CHE122-D' }}">
+            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: 'general-chemistry-ii' }}">
 
                   <div class="course card h-100" key="one">
                     <img src="https://images.prismic.io/csug/03086e2a-2c5c-41da-a9f8-972019b28619_direct-che122.jpg?auto=compress,format" class="card-img-top" alt="">
@@ -278,7 +278,7 @@
                 </Slide>
 
                 <Slide key="introduction-to-physics">
-            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: 'PHY101-D' }}">
+            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: 'introduction-to-physics' }}">
 
                   <div class="course card h-100" key="one">
                     <img src="https://images.prismic.io/csug/2b0fe4bf-0055-4e0f-8349-2a79317594bd_direct-phy101.jpg?auto=compress,format" class="card-img-top" alt="">
@@ -311,7 +311,7 @@
                 </Slide>
 
                 <Slide key="abnormal-psychology">
-            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: 'PSY362-D' }}">
+            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: 'abnormal-psychology' }}">
 
                   <div class="course card h-100" key="one">
                     <img src="https://images.prismic.io/csug/e9f1ec2f-b0fb-4607-b1a5-f694e870329c_direct-psy362.jpg?auto=compress,format" class="card-img-top" alt="">
@@ -368,7 +368,7 @@ import { defineComponent } from 'vue'
 import { Carousel, Navigation, Slide } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
 
-
+//:wrap-around="true" :itemsToShow="3"
 export default defineComponent({
   name: 'HomeCatalog',
   components: {
@@ -376,6 +376,25 @@ export default defineComponent({
     Navigation,
     Slide,
   },
+  data: () => ({
+    // carousel settings
+    settings: {
+      itemsToShow: 1,
+      snapAlign: 'center',
+    },
+    // breakpoints are mobile first
+    // any settings not specified will fallback to the carousel settings
+    breakpoints: {
+      // 700px and up
+      992: {
+        itemsToShow: 2,
+      },
+      // 1024 and up
+      1200: {
+        itemsToShow: 3,
+      },
+    },
+  }),
 
 });
 </script>
@@ -397,7 +416,7 @@ export default defineComponent({
 }
 
 .card-body {
-  background-color: #eee;
+  background-color: #f1f2f4;
 }
 
 .course.card {
@@ -428,6 +447,10 @@ export default defineComponent({
 }
 .carousel__slide {
   padding-block: 1rem;
+}
+
+.carousel__slide--active {
+  margin-inline: 1rem;
 }
 
 .link-success{

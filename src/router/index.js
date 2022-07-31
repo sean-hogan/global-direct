@@ -67,6 +67,12 @@ const routes = [{
             import ('../views/Confirmation.vue')
     },
     {
+        path: '/rfi-confirmation',
+        name: 'RFIConfirmation',
+        component: () =>
+            import ('../views/RFIConfirmation.vue')
+    },
+    {
         path: '/courses/:id',
         name: 'CourseTemplate',
         component: () =>

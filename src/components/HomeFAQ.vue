@@ -85,7 +85,9 @@
 
 </div><!--end accordion-->
 
-<p class="lead text-center mt-3"><router-link class="link-success text-decoration-none" to="/faq">See our FAQ for more details <i class="bi bi-arrow-right"></i></router-link></p>
+<p class="lead text-center mt-3 moving-left">
+  <router-link class="link-success text-decoration-none" to="/faq">See our FAQ for more details <i class="bi bi-arrow-right"></i></router-link>
+  </p>
 
 
 
@@ -115,8 +117,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .accordion-button:not(.collapsed) {
-  color:#fff;
-  background-color:#18c9b9;
+  background-color:#eee;
 }
 
 .accordion-body {
@@ -130,5 +131,18 @@ export default {
 .accordion-button:focus {
   box-shadow:none;
 }
+
+
+.moving-left {
+  position: relative;
+  transition: transform 0.3s ease;
+  transform: translateX(0px);
+}
+
+.moving-left:hover {
+  transform: scale(1.1);
+
+}
+
 
 </style>

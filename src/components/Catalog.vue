@@ -38,7 +38,7 @@
                       <option value="">All Start Dates</option>
                        <option v-for="subject in subjects" :key="subject" :value="subject">{{subject}}</option> 
                     </select>-->
-                    <div class="d-flex">
+                    <!-- <div class="d-flex">
                     <button tabindex="0" class="btn btn-link link-primary sort-link" 
                     @click.prevent="sort('courseTitle')"
                     @keyup.enter="sort('courseTitle')"
@@ -49,7 +49,7 @@
                     @keyup.enter="sort('coursePrice')" 
                     v-bind:class="[sortBy === 'coursePrice' ? sortDirection : '']">Sort by Price</button>
 
-                    </div>
+                    </div> -->
 
 
 
@@ -72,7 +72,7 @@
                  <!--course card-->
                 <!-- <div v-for="course in paginatedData" class="col" :key="course.courseNumber"> -->
                 <div v-for="course in filteredCourseList" class="col" :key="course.courseNumber">
-            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: course.courseNumber }}">
+            <router-link class="text-decoration-none text-reset" :to="{ name: 'CourseTemplate', params: { id: course.courseTitle.replace(/\s+/g, '-').toLowerCase() }}">
               <div class="course card">
                 <div class="row g-0 flex-grow-1">
                   <div class="col-md-4">
@@ -273,10 +273,12 @@ export default {
 <style scoped lang="scss">
 header h1 {
   color:#9e1831;
+  font-size: 3rem;
+  font-weight:500;
 }
 .card {
   border:1px solid #9e1831;
-  border-radius: 2rem;
+  border-radius: 4px;
   flex-direction:row;
   box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
   transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
@@ -284,12 +286,17 @@ header h1 {
 
 .course-card-header {
   display:flex;
-  margin-bottom:1rem;
+  //margin-bottom:1rem;
+}
+
+.card-text {
+  color: #303858;
 }
 
 .img-fluid {
-  border-top-left-radius: 2rem;
-  border-bottom-left-radius: 2rem;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  aspect-ratio: 4/3;
 
 }
 
@@ -310,8 +317,8 @@ header h1 {
   background-color:#fff;
   display: flex;
   flex-direction: column;
-  border-top-right-radius: 2rem;
-  border-bottom-right-radius: 2rem;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
   padding-bottom: 0px;
   background-color: transparent;
 }

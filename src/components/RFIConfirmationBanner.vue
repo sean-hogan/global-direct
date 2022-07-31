@@ -1,23 +1,23 @@
 <template>
 <header>
-  <div class="about-hero section">
+
+  <div class="confirmation-hero section">
     <div class="container">
     <div class="row">
-      
-        <div class="header-text col-sm-6 my-5 p-5">        
-            <h1>About Us</h1>
-            <p class="lead">Learn more about CSU Global </p>
+        <div class="header-text col-10 col-xs-6 my-5 p-5">        
+            <h1>We'll be in touch</h1>
+            <!-- <p class="lead">Lorem Ipsum here is a little bit of text</p> -->
         </div>
         
     </div><!--end row-->
   </div><!--end container -->
   </div><!--end section-->
-</header>
+  </header>
 </template>
 
 <script>
 export default {
-    name: 'AboutBanner',
+    name: 'RFIConfirmationBanner',
   props: {
 
   },
@@ -27,10 +27,8 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 
-
-
-.about-hero.section {
-    background-image: url(https://images.prismic.io/csug/6e114559-ab7e-42e6-b4b4-73451b21350c_direct-header-about-2.jpg?auto=compress,format);
+.confirmation-hero.section {
+    background-image: url(https://images.prismic.io/csug/86044f3a-5631-417b-8261-1ce5c1743964_Direct-Confirmation-Header-1600x600-A.jpg?auto=compress,format);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -43,11 +41,6 @@ export default {
 
 .header-text h1 {
     font-size: 4rem;
-}
-
-.lead {
-  font-Weight: 600;
-  font-Size: 1.5rem;
 }
 
 </style>

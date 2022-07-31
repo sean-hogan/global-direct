@@ -13,10 +13,10 @@
       </div>
 
       <div class="col-10 col-sm-8 col-lg-6">
-       <h2>Why Affordable Education at Global</h2>
+       <h2>Why Affordable Education @ Global</h2>
         <p class="lead">As one of the fastest growing online universities in the nation, and the first independent, 100% online state university in the U.S., Colorado State University Global is a leader in online education, and since its inception has been designed to help learners move forward today with the skills they need for tomorrow.</p>
         <p>CSU Global Direct expands upon that mission by giving students an affordable, flexible way to complete individual course requirements to fill gaps in their academic transcripts or work towards completing their degrees sooner.</p>
-        <p class="mt-4"><router-link class="btn btn-outline-secondary" to="/about">Learn more</router-link></p>
+        <p class="mt-4"><a class="btn btn-outline-secondary" href="https://csuglobal.edu/">Learn more</a></p>
       </div>
 
 
@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  name: 'SchoolFeature',
+  name: 'AboutSchoolFeature',
   props: {
 
   },

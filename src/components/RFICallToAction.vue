@@ -7,7 +7,7 @@
 <h4 class="display-3 mb-4 mt-5">Let's Get Started Together</h4>
 <p class="lead mb-5">You don't even have to fill out your registration alone. Our Enrollment Counselors are standing by to help you if you need us.</p>
 <div>
-    <router-link to="/get-started" class="btn btn-lg btn-light rounded-pill px-5 me-4">Apply Now</router-link>
+    <router-link to="/get-started" class="btn btn-lg btn-light rounded-pill px-5">Apply Now</router-link>
     <!-- <router-link to="/request-information" class="btn btn-lg btn-light rounded-pill px-5">Learn More</router-link> -->
 </div>
 </div><!--col-->
@@ -31,10 +31,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .advisor-call-to-action {
-  color:#111;
+  color:#fff;
 }
 .floaty-bg{
-  background-image: url(https://images.prismic.io/csug/f2f98746-f47b-46a6-b7d7-bed3cd9ef987_Appeals-Center-UI-Header-1600x600px-A2.jpg);
+  background-image: url(https://images.prismic.io/csug/fcbcb260-507b-4665-9cfe-233fce2acef6_CTA-Box.png);
   background-size:cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -48,11 +48,15 @@ export default {
 .btn-light {
   color:#aa1d40;
   border:1px solid #aa1d40;
+  transition: all 0.3s ease-in-out;
+
 }
 
 .btn-light:hover {
-  color:#aa1d40;
+  color:#7F131F;
   background-color: #eee;
+  transform: scale(1.1);
+
 }
 
 

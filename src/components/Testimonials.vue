@@ -8,12 +8,12 @@
     
 
 
-      <div class="row g-3 py-5">
+      <div class="row row-cols-1 row-cols-lg-3 g-3 py-5">
         <div class="feature col" data-aos="fade" data-aos-duration="500" data-aos-once="true" data-aos-offset="50">
             <div class="card pt-3 h-100">
                 <div class="card-body">
                     <div class="testimonial-profile">
-                        <img src="https://livetorchlight.com/wp-content/uploads/2015/10/placeholder-circle-300x300.png" class="" />
+                        
                         <div class="mt-2">
                             <h3 class="card-title">Shauna Carter</h3>
                             <p class="card-subtitle">Student</p>
@@ -28,7 +28,7 @@
             <div class="card pt-3 h-100">
                 <div class="card-body">
                     <div class="testimonial-profile">
-                        <img src="https://livetorchlight.com/wp-content/uploads/2015/10/placeholder-circle-300x300.png" class="" />
+                        
                         <div class="mt-2">
                             <h3 class="card-title">Jennifer Vogel</h3>
                             <p class="card-subtitle">Student</p>
@@ -43,7 +43,7 @@
             <div class="card pt-3 h-100">
                 <div class="card-body">
                    <div class="testimonial-profile">
-                    <img src="https://livetorchlight.com/wp-content/uploads/2015/10/placeholder-circle-300x300.png" class="" />
+                    
                     <div class="mt-2">
                     <h3 class="card-title">Melinda Livinston</h3>
                     <p class="card-subtitle">Student</p>
@@ -53,6 +53,55 @@
                 </div>
             </div><!--end card-->
         </div><!--end col-->
+
+    </div><!--end row-->
+
+          <div class="row row-cols-1 row-cols-lg-3 g-3">
+        <div class="feature col" data-aos="fade" data-aos-duration="500" data-aos-once="true" data-aos-offset="50">
+            <div class="card pt-3 h-100">
+                <div class="card-body">
+                    <div class="testimonial-profile">
+                        
+                        <div class="mt-2">
+                            <h3 class="card-title">Charles Belote</h3>
+                            <p class="card-subtitle">Student</p>
+                        </div>
+                    </div>
+                    <p>This university does not treat their students as numbers, but as individual people. The entire staff and professors go above and beyond their jobs to make CSU Global students feel like part of a great organization. I know they care about the students and our futures.</p>
+                </div>
+            </div><!--end card-->
+        </div><!--end col-->
+
+        <div class="feature col" data-aos="fade" data-aos-delay="100" data-aos-duration="500" data-aos-once="true" data-aos-offset="50">
+            <div class="card pt-3 h-100">
+                <div class="card-body">
+                    <div class="testimonial-profile">
+                        
+                        <div class="mt-2">
+                            <h3 class="card-title">Wesley Chapel</h3>
+                            <p class="card-subtitle">Alumni</p>
+                        </div>
+                    </div>
+                    <p>I chose CSU Global because it seemed like they understood who I was as a student and wanted to see me be successful without jumping through hoops like at traditional schools. The whole process from registration to classes was exactly what a working student needs.</p>
+                </div>
+            </div><!--end card-->
+        </div><!--end col-->
+
+                <div class="feature col" data-aos="fade" data-aos-delay="100" data-aos-duration="500" data-aos-once="true" data-aos-offset="50">
+            <div class="card pt-3 h-100">
+                <div class="card-body">
+                    <div class="testimonial-profile">
+                        
+                        <div class="mt-2">
+                            <h3 class="card-title">Melissa Shields</h3>
+                            <p class="card-subtitle">Student</p>
+                        </div>
+                    </div>
+                    <p>CSU Global has allowed me the opportunity to expand my knowledge and focus on my future all from the comfort of my home.</p>
+                </div>
+            </div><!--end card-->
+        </div><!--end col-->
+
 
     </div><!--end row-->
 
@@ -82,8 +131,9 @@ export default ({
 }
 
 h3.card-title {
-    font-size:1.2rem;
+    font-size:1.4rem;
     font-weight:600;
+    color:#AA1D40
 
 }
 .card-subtitle {
@@ -93,7 +143,7 @@ h3.card-title {
 
 .card {
     border: 1px solid #9e1831;
-    border-radius:20px;
+    border-radius:4px;
     padding-inline: 1.5rem;
 }
 img {

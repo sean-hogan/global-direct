@@ -46,11 +46,16 @@ export default {
 
 .btn-light {
   color:#aa1d40;
+  transition: all 0.3s ease-in-out;
+
 }
 
 .btn-light:hover {
-  color:#aa1d40;
+  color:#7F131F;
   background-color: #eee;
+  transform: scale(1.1);
+
+  
 }
 
 

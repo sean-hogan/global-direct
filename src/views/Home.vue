@@ -2,18 +2,17 @@
   <HomeHero />
   <SubHero />
   <main id="main-content">
-  <HomeCatalog />
-  <HomeCompareValue />
-  <HomeFeatureLeft />
-  <HomeFeatureRight />
-  <HomeCalendarCTA />
+    <HomeCatalog />
+    <HomeCompareValue />
+    <HomeFeatureLeft />
+    <HomeFeatureRight />
   </main>
   <aside>
-  <SchoolFeature />
-  <Testimonials />
-  <HomeFAQ />  
-  <!-- <PictureCardFeatures /> -->
-  <AdvisorCallToAction />
+    <SchoolFeature />
+    <Testimonials />
+    <HomeFAQ />  
+    <!-- <PictureCardFeatures /> -->
+    <AdvisorCallToAction />
   </aside>
   <!-- <Features /> -->
 </template>
@@ -27,7 +26,6 @@ import HomeCatalog from '@/components/HomeCatalog.vue'
 import HomeCompareValue from '@/components/HomeCompareValue.vue'
 import HomeFeatureLeft from '@/components/HomeFeatureLeft.vue'
 import HomeFeatureRight from '@/components/HomeFeatureRight.vue'
-import HomeCalendarCTA from '@/components/HomeCalendarCTA.vue'
 import Testimonials from '@/components/Testimonials.vue'
 import SchoolFeature from '@/components/SchoolFeature.vue'
 import HomeFAQ from '@/components/HomeFAQ.vue'
@@ -49,7 +47,6 @@ export default {
     HomeCompareValue,
     HomeFeatureLeft,
     HomeFeatureRight,
-    HomeCalendarCTA,
     Testimonials,
     SchoolFeature,
     // PictureCardFeatures,

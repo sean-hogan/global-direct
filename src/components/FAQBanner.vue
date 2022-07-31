@@ -38,12 +38,14 @@ export default {
 
 .header-text {
     color: #1c2333;
-    text-transform: uppercase;
     background-color: hsla(0,0%,100%,.7);
 }
 
 .header-text h1 {
     font-size: 4rem;
 }
-
+.lead {
+  font-Weight: 600;
+  font-Size: 1.5rem;
+}
 </style>
